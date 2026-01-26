@@ -45,13 +45,24 @@
   }
 
   function resize() {
-    const rect = canvas.getBoundingClientRect();
-    w = rect.width;
-    h = rect.height;
-    canvas.width = Math.floor(w * dpr);
-    canvas.height = Math.floor(h * dpr);
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  }
+  const doc = document.documentElement;
+
+  w = doc.clientWidth;
+  h = Math.max(
+    doc.scrollHeight,
+    doc.offsetHeight,
+    doc.clientHeight
+  );
+
+  canvas.style.width = "100%";
+  canvas.style.height = h + "px";
+
+  canvas.width = Math.floor(w * dpr);
+  canvas.height = Math.floor(h * dpr);
+
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+
 
   function onMove(e) {
     pointer.tx = e.clientX;
@@ -80,6 +91,7 @@
   window.addEventListener("touchend", onLeave, { passive: true });
 
   resize();
+  setInterval(resize, 1200);
 
   const teal = cssVar("--teal", "#78BAC2");
   const blue = cssVar("--blue", "#4D9AB9");
