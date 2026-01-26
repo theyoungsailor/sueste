@@ -45,14 +45,24 @@
   }
 
   function resize() {
-  const doc = document.documentElement;
+  const body = document.body;
+  const html = document.documentElement;
 
-  w = doc.clientWidth;
+  w = Math.max(html.clientWidth, html.scrollWidth, body.scrollWidth);
   h = Math.max(
-    doc.scrollHeight,
-    doc.offsetHeight,
-    doc.clientHeight
+    body.scrollHeight, body.offsetHeight,
+    html.clientHeight, html.scrollHeight, html.offsetHeight
   );
+
+  canvas.style.width = "100%";
+  canvas.style.height = h + "px";
+
+  canvas.width = Math.floor(w * dpr);
+  canvas.height = Math.floor(h * dpr);
+
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+
 
   canvas.style.width = "100%";
   canvas.style.height = h + "px";
