@@ -95,8 +95,8 @@
 
     const startY = Math.max(60, h * 0.18);
     const grad = ctx.createLinearGradient(0, 0, w, 0);
-    grad.addColorStop(0, hexToRgba(teal, 0.65));
-    grad.addColorStop(1, hexToRgba(blue, 0.65));
+    grad.addColorStop(0, hexToRgba(teal, 0.90));
+    grad.addColorStop(1, hexToRgba(blue, 0.90));
 
     for (let i = 0; i < waves.count; i++) {
       const yBase = startY + i * waves.spacing;
