@@ -965,5 +965,10 @@ a{color:inherit}
   opacity:.55;
   z-index:-1;
 }
+.brand-logo{
+  max-height:40px;
+  width:auto;
+  display:block;
+}
 
 
