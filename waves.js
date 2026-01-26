@@ -93,12 +93,13 @@
 
     ctx.clearRect(0, 0, w, h);
 
-    const startY = Math.max(60, h * 0.18);
+    const startY = 0;
     const grad = ctx.createLinearGradient(0, 0, w, 0);
     grad.addColorStop(0, hexToRgba(teal, 0.90));
     grad.addColorStop(1, hexToRgba(blue, 0.90));
 
-    for (let i = 0; i < waves.count; i++) {
+    const count = Math.ceil((h + waves.spacing * 2) / waves.spacing);
+for (let i = 0; i < count; i++) {
       const yBase = startY + i * waves.spacing;
       ctx.beginPath();
       ctx.strokeStyle = grad;
