@@ -1,9 +1,12 @@
 (() => {
   const canvas = document.getElementById("bg-waves");
+  if (!canvas) return;
+
   const ctx = canvas.getContext("2d", { alpha: true });
 
   const dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
-  let w = 0, h = 0;
+  let w = 0;
+  let h = 0;
 
   const pointer = {
     x: 0,
@@ -15,22 +18,24 @@
   };
 
   const waves = {
-    count: 10,
-    spacing: 36,
-    amp: 18,
-    speed: 0.55,
-    freq: 0.0105,
-    noise: 0.35,
-    lineWidth: 1
+    count: 12,
+    spacing: 34,
+    amp: 16,
+    speed: 0.45,
+    freq: 0.010,
+    noise: 0.30,
+    lineWidth: 0.9
   };
 
   function cssVar(name, fallback) {
-    const v = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    const v = getComputedStyle(document.documentElement)
+      .getPropertyValue(name)
+      .trim();
     return v || fallback;
   }
 
   function hexToRgba(hex, a) {
-    const h = hex.replace("#", "").trim();
+    const h = hex.replace("#", "");
     const full = h.length === 3 ? h.split("").map(c => c + c).join("") : h;
     const n = parseInt(full, 16);
     const r = (n >> 16) & 255;
@@ -41,22 +46,16 @@
 
   function resize() {
     const rect = canvas.getBoundingClientRect();
-    w = Math.floor(rect.width);
-    h = Math.floor(rect.height);
+    w = rect.width;
+    h = rect.height;
     canvas.width = Math.floor(w * dpr);
     canvas.height = Math.floor(h * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
 
-  function clamp(n, a, b) {
-    return Math.max(a, Math.min(b, n));
-  }
-
   function onMove(e) {
-    const x = e.clientX;
-    const y = e.clientY;
-    pointer.tx = x;
-    pointer.ty = y;
+    pointer.tx = e.clientX;
+    pointer.ty = e.clientY;
     pointer.active = true;
     pointer.strength = 1;
   }
@@ -66,7 +65,7 @@
   }
 
   function onTouch(e) {
-    if (!e.touches || !e.touches[0]) return;
+    if (!e.touches[0]) return;
     pointer.tx = e.touches[0].clientX;
     pointer.ty = e.touches[0].clientY;
     pointer.active = true;
@@ -94,62 +93,46 @@
 
     ctx.clearRect(0, 0, w, h);
 
-    const baseY = h * 0.18;
-    const totalHeight = Math.max(h * 0.8, waves.count * waves.spacing + 160);
-    const startY = clamp(baseY, 40, h - totalHeight - 40);
-
+    const startY = Math.max(60, h * 0.18);
     const grad = ctx.createLinearGradient(0, 0, w, 0);
-    grad.addColorStop(0, hexToRgba(teal, 0.75));
-    grad.addColorStop(1, hexToRgba(blue, 0.75));
+    grad.addColorStop(0, hexToRgba(teal, 0.65));
+    grad.addColorStop(1, hexToRgba(blue, 0.65));
 
     for (let i = 0; i < waves.count; i++) {
-      const y0 = startY + i * waves.spacing;
-
-      const alpha = 0.10 + (i / (waves.count - 1)) * 0.12;
+      const yBase = startY + i * waves.spacing;
+      ctx.beginPath();
       ctx.strokeStyle = grad;
-      ctx.globalAlpha = alpha;
+      ctx.globalAlpha = 0.08 + i * 0.01;
       ctx.lineWidth = waves.lineWidth;
 
-      ctx.beginPath();
-
-      const phase = i * 0.65 + time * waves.speed;
-      const amp = waves.amp * (0.75 + i * 0.04);
-
+      const phase = time * waves.speed + i * 0.6;
       const rippleRadius = 220;
-      const ripplePower = 34 * pointer.strength;
+      const ripplePower = 22 * pointer.strength;
 
       for (let x = 0; x <= w; x += 8) {
         const nx = x * waves.freq;
+        let y =
+          yBase +
+          Math.sin(nx + phase) * waves.amp +
+          Math.sin(nx * 0.6 + phase) * waves.amp * 0.4;
 
-        const yWave =
-          Math.sin(nx + phase) * amp +
-          Math.sin(nx * 0.55 + phase * 1.2) * (amp * 0.55);
-
-        const drift = Math.sin((nx * 0.25) + time * 0.35 + i) * (amp * waves.noise);
-
-        let y = y0 + yWave + drift;
-
-        if (pointer.strength > 0.02) {
+        if (pointer.strength > 0.01) {
           const dx = x - pointer.x;
-          const dy = y0 - pointer.y;
+          const dy = yBase - pointer.y;
           const dist = Math.hypot(dx, dy);
-
           if (dist < rippleRadius) {
             const k = 1 - dist / rippleRadius;
-            const rip = Math.sin(dist * 0.06 - time * 3.2) * ripplePower * k * k;
-            y += rip;
+            y += Math.sin(dist * 0.05 - time * 3) * ripplePower * k * k;
           }
         }
 
-        if (x === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
+        x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
       }
 
       ctx.stroke();
     }
 
     ctx.globalAlpha = 1;
-
     requestAnimationFrame(draw);
   }
 
