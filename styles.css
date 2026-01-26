@@ -39,16 +39,22 @@ body{
 }
 
 #bg-waves{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  min-height:100vh;
-  z-index:-2;
+  position:fixed;
+  inset:0;
+  width:100vw;
+  height:100vh;
+  z-index:0;
   pointer-events:none;
   opacity:1;
   mix-blend-mode:screen;
+}
+
+/* garantir que o conteúdo fica acima das ondas */
+.site-header,
+main,
+.site-footer{
+  position:relative;
+  z-index:1;
 }
 
 body::before{
