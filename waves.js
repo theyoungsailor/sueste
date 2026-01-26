@@ -1,4 +1,7 @@
 (() => {
+  // Background waves canvas
+  // Objetivo: ondas sempre visíveis no viewport e padrão infinito ao fazer scroll
+
   const canvas = document.getElementById("bg-waves");
   if (!canvas) return;
 
@@ -8,6 +11,10 @@
   let w = 0;
   let h = 0;
 
+  // Scroll atual da página (para gerar padrão infinito)
+  let scrollY = window.scrollY || 0;
+
+  // Pointer para ripple
   const pointer = {
     x: 0,
     y: 0,
@@ -17,20 +24,21 @@
     strength: 0
   };
 
+  // Parâmetros das ondas
   const waves = {
-    count: 12,
     spacing: 34,
     amp: 16,
     speed: 0.45,
     freq: 0.010,
     noise: 0.30,
-    lineWidth: 0.9
+    lineWidth: 0.9,
+    stepX: 8,
+    rippleRadius: 220,
+    ripplePower: 26
   };
 
   function cssVar(name, fallback) {
-    const v = getComputedStyle(document.documentElement)
-      .getPropertyValue(name)
-      .trim();
+    const v = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
     return v || fallback;
   }
 
@@ -44,35 +52,19 @@
     return `rgba(${r},${g},${b},${a})`;
   }
 
+  // Canvas sempre do tamanho do viewport
   function resize() {
-  const body = document.body;
-  const html = document.documentElement;
+    w = window.innerWidth;
+    h = window.innerHeight;
 
-  w = Math.max(html.clientWidth, html.scrollWidth, body.scrollWidth);
-  h = Math.max(
-    body.scrollHeight, body.offsetHeight,
-    html.clientHeight, html.scrollHeight, html.offsetHeight
-  );
+    canvas.width = Math.floor(w * dpr);
+    canvas.height = Math.floor(h * dpr);
 
-  canvas.style.width = "100%";
-  canvas.style.height = h + "px";
+    canvas.style.width = "100vw";
+    canvas.style.height = "100vh";
 
-  canvas.width = Math.floor(w * dpr);
-  canvas.height = Math.floor(h * dpr);
-
-  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-}
-
-
-  canvas.style.width = "100%";
-  canvas.style.height = h + "px";
-
-  canvas.width = Math.floor(w * dpr);
-  canvas.height = Math.floor(h * dpr);
-
-  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-}
-
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
 
   function onMove(e) {
     pointer.tx = e.clientX;
@@ -93,7 +85,12 @@
     pointer.strength = 1;
   }
 
+  function onScroll() {
+    scrollY = window.scrollY || 0;
+  }
+
   window.addEventListener("resize", resize, { passive: true });
+  window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("mousemove", onMove, { passive: true });
   window.addEventListener("mouseleave", onLeave, { passive: true });
   window.addEventListener("touchstart", onTouch, { passive: true });
@@ -101,7 +98,6 @@
   window.addEventListener("touchend", onLeave, { passive: true });
 
   resize();
-  setInterval(resize, 1200);
 
   const teal = cssVar("--teal", "#78BAC2");
   const blue = cssVar("--blue", "#4D9AB9");
@@ -109,43 +105,57 @@
   function draw(t) {
     const time = t * 0.001;
 
+    // Suavizar pointer
     pointer.x += (pointer.tx - pointer.x) * 0.12;
     pointer.y += (pointer.ty - pointer.y) * 0.12;
     pointer.strength += ((pointer.active ? 1 : 0) - pointer.strength) * 0.06;
 
     ctx.clearRect(0, 0, w, h);
 
-    const startY = 0;
+    // Gradiente mais claro
     const grad = ctx.createLinearGradient(0, 0, w, 0);
-    grad.addColorStop(0, hexToRgba(teal, 0.90));
-    grad.addColorStop(1, hexToRgba(blue, 0.90));
+    grad.addColorStop(0, hexToRgba(teal, 0.92));
+    grad.addColorStop(1, hexToRgba(blue, 0.92));
 
+    // Offset para não veres as linhas a “deslizarem” com o scroll
+    // Em vez disso, o padrão muda e parece infinito
+    const yOffset = scrollY % waves.spacing;
+
+    // Quantas linhas cabem no viewport
     const count = Math.ceil((h + waves.spacing * 2) / waves.spacing);
-for (let i = 0; i < count; i++) {
-      const yBase = startY + i * waves.spacing;
+
+    for (let i = 0; i < count; i++) {
+      // y no ecrã (viewport)
+      const yBase = i * waves.spacing - yOffset;
+
+      // Índice do “mundo” para variar o padrão com o scroll
+      const worldIndex = Math.floor((scrollY + i * waves.spacing) / waves.spacing);
+
       ctx.beginPath();
       ctx.strokeStyle = grad;
-      ctx.globalAlpha = 0.14 + i * 0.012;
+      ctx.globalAlpha = 0.15 + (i / Math.max(1, count - 1)) * 0.08;
       ctx.lineWidth = waves.lineWidth;
 
-      const phase = time * waves.speed + i * 0.6;
-      const rippleRadius = 220;
-      const ripplePower = 22 * pointer.strength;
+      // Fase muda ao longo do scroll para parecer infinito
+      const phase = time * waves.speed + worldIndex * 0.55;
 
-      for (let x = 0; x <= w; x += 8) {
+      for (let x = 0; x <= w; x += waves.stepX) {
         const nx = x * waves.freq;
+
         let y =
           yBase +
           Math.sin(nx + phase) * waves.amp +
           Math.sin(nx * 0.6 + phase) * waves.amp * 0.4;
 
+        // Ripple com rato ou touch
         if (pointer.strength > 0.01) {
           const dx = x - pointer.x;
           const dy = yBase - pointer.y;
           const dist = Math.hypot(dx, dy);
-          if (dist < rippleRadius) {
-            const k = 1 - dist / rippleRadius;
-            y += Math.sin(dist * 0.05 - time * 3) * ripplePower * k * k;
+
+          if (dist < waves.rippleRadius) {
+            const k = 1 - dist / waves.rippleRadius;
+            y += Math.sin(dist * 0.05 - time * 3) * (waves.ripplePower * pointer.strength) * k * k;
           }
         }
 
