@@ -102,7 +102,7 @@
       const yBase = startY + i * waves.spacing;
       ctx.beginPath();
       ctx.strokeStyle = grad;
-      ctx.globalAlpha = 0.08 + i * 0.01;
+      ctx.globalAlpha = 0.14 + i * 0.012;
       ctx.lineWidth = waves.lineWidth;
 
       const phase = time * waves.speed + i * 0.6;
