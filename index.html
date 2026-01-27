@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#070A12" />
 
-  <title>Sueste Creative Agency | Branding, Websites, Social Media e Drone</title>
-  <meta name="description" content="A Sueste Creative Agency cria identidade, websites e conteúdo com direção clara. Branding, digital e media no Algarve, com estética premium e foco em performance." />
+  <title>Sueste - Creative Agency | Design Gráfico, Web, Social Media e Drone</title>
+  <meta name="description" content="Sueste - Creative Agency. Movimento com intenção para criar impacto. Design Gráfico, Social Media, Desenvolvimento Web e Drone Media no Algarve, Portugal." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://teudominio.pt/" />
 
@@ -14,24 +14,30 @@
   <link rel="apple-touch-icon" href="images/fav-icon.png" />
 
   <link rel="preload" as="image" href="images/logo-white-hor.png" />
-
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Structured data (basic) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@graph":[
       {
         "@type":"Organization",
-        "name":"Sueste Creative Agency",
+        "name":"Sueste - Creative Agency",
         "url":"https://teudominio.pt/",
         "logo":"https://teudominio.pt/images/logo-white-hor.png",
-        "description":"Agência criativa especializada em branding, websites, redes sociais, filmagens de drone e media."
+        "email":"info@sueste-creative.com",
+        "telephone":"+351965494727",
+        "areaServed":"PT",
+        "address":{
+          "@type":"PostalAddress",
+          "addressLocality":"Algarve",
+          "addressCountry":"PT"
+        },
+        "description":"Agência criativa premium no Algarve, focada em movimento, direção e impacto. Design Gráfico, Social Media, Desenvolvimento Web e Drone Media."
       },
       {
         "@type":"WebSite",
-        "name":"Sueste Creative Agency",
+        "name":"Sueste - Creative Agency",
         "url":"https://teudominio.pt/"
       }
     ]
@@ -46,12 +52,17 @@
   <!-- HEADER -->
   <header class="site-header" id="topo" role="banner">
     <div class="container header-inner">
-      <a class="brand" href="#topo" aria-label="Sueste Creative Agency, voltar ao topo">
-        <span class="brand-mark" aria-hidden="true">S</span>
-        <span class="brand-text">
-          <span class="brand-name">Sueste</span>
-          <span class="brand-sub">Creative Agency</span>
-        </span>
+      <a class="brand" href="#topo" aria-label="Sueste - Creative Agency, voltar ao topo">
+        <img
+          src="images/logo-white-hor.png"
+          alt="Sueste - Creative Agency"
+          width="180"
+          height="40"
+          loading="eager"
+          decoding="async"
+          class="brand-logo"
+        />
+        <span class="sr-only">Sueste - Creative Agency</span>
       </a>
 
       <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="site-nav">
@@ -70,173 +81,68 @@
   </header>
 
   <main id="conteudo">
-    <!-- HERO (NEW) -->
-    <section class="hero" aria-label="Hero">
-      <div class="container">
-        <div class="hero-grid">
-          <!-- LEFT -->
-          <div class="hero-copy glass">
-            <div class="kicker">SUESTE, CREATIVE AGENCY</div>
+    <!-- HERO (VIDEO + TYPING + PILLS) -->
+    <section class="hero hero-video" aria-label="Hero">
+      <div class="hero-video-wrap" aria-hidden="true">
+        <video
+          class="hero-video-el"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster="images/hero-poster.jpg"
+        >
+          <source src="images/hero-video.mp4" type="video/mp4" />
+        </video>
+      </div>
 
-            <h1>
-              O que move nem sempre se vê.<br />
-              <span class="grad-text">O impacto é inevitável.</span>
-            </h1>
+      <div class="hero-overlay" aria-hidden="true"></div>
 
-            <p class="lead">
-              Branding, web, social media e conteúdos com direção clara.
-              Nascidos do Sueste, feitos para levantar ondas.
-            </p>
+      <div class="container hero-content">
+        <div class="hero-top">
+          <img
+            src="images/logo-white-hor.png"
+            alt="Sueste - Creative Agency"
+            width="220"
+            height="48"
+            loading="eager"
+            decoding="async"
+            class="hero-logo"
+          />
+        </div>
 
-            <div class="hero-actions" role="group" aria-label="Ações principais">
-              <a class="btn primary" href="#contacto" aria-label="Pedir proposta">Pedir proposta</a>
-              <a class="btn secondary" href="#projetos" aria-label="Ver projetos">Ver projetos</a>
-            </div>
+        <div class="hero-left">
+          <h1 class="hero-typed">
+            <span class="sr-only">O que move nem sempre se vê. Mas o impacto é inevitável.</span>
+            <span
+              id="hero-typed-text"
+              class="hero-typed-text"
+              aria-hidden="true"
+              data-text="O que move nem sempre se vê. Mas o impacto é inevitável."
+            ></span>
+            <span class="typed-caret" aria-hidden="true"></span>
+          </h1>
 
-            <ul class="hero-pills" aria-label="Serviços">
-              <li class="pill">Branding</li>
-              <li class="pill">Websites</li>
-              <li class="pill">Redes sociais</li>
-              <li class="pill">Drone</li>
-              <li class="pill">Media</li>
-            </ul>
+          <p class="hero-sub">
+            O movimento vem primeiro. O impacto é inevitável.
+          </p>
+        </div>
 
-            <div class="hero-bottom glass" style="margin-top:18px;border-radius:16px;">
-              <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 14px;">
-                <div style="display:flex;align-items:center;gap:12px;">
-                  <img
-                    src="images/logo-white-hor.png"
-                    alt="Sueste Creative Agency"
-                    width="160"
-                    height="36"
-                    loading="eager"
-                    decoding="async"
-                    style="height:26px;width:auto;opacity:.92;"
-                  />
-                  <span style="color:var(--ink-soft);font-weight:700;font-size:14px;">
-                    Trabalho com detalhe, consistência e movimento.
-                  </span>
-                </div>
-
-                <a
-                  href="#servicos"
-                  class="btn secondary"
-                  style="padding:10px 12px;border-radius:14px;"
-                  aria-label="Explorar serviços"
-                >
-                  Explorar serviços
-                </a>
-              </div>
-            </div>
-
-            <a
-              href="#servicos"
-              aria-label="Scroll para a secção de serviços"
-              style="display:inline-flex;align-items:center;gap:10px;margin-top:14px;text-decoration:none;color:var(--ink-faint);font-weight:800;font-size:13px;"
-            >
-              <span style="width:34px;height:34px;border-radius:999px;border:1px solid rgba(255,255,255,0.12);display:inline-grid;place-items:center;background:rgba(255,255,255,0.04);">
-                ↓
-              </span>
-              <span>Ver mais</span>
-            </a>
+        <div class="hero-bottom">
+          <div class="hero-pills glass" role="navigation" aria-label="Atalhos para serviços">
+            <a class="pill-link" href="#design-grafico">Design Gráfico</a>
+            <a class="pill-link" href="#social-media">Social Media</a>
+            <a class="pill-link" href="#desenvolvimento-web">Desenvolvimento Web</a>
+            <a class="pill-link" href="#drone-media">Drone Media</a>
           </div>
 
-          <!-- RIGHT -->
-          <div class="hero-media">
-            <div class="hero-card glass" aria-label="Destaques e trabalho recente">
-              <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;">
-                <div>
-                  <h3 class="hero-card-title" style="margin:0;">Trabalho recente</h3>
-                  <p class="hero-card-sub" style="margin:6px 0 0;">
-                    Quatro exemplos. O resto está no portfólio.
-                  </p>
-                </div>
-
-                <a class="btn secondary" href="#projetos" style="padding:10px 12px;border-radius:14px;">
-                  Abrir portfólio
-                </a>
-              </div>
-
-              <div class="grid hero-feature-grid" aria-label="Pré-visualização de projetos">
-                <a href="#projetos" class="hero-feature" aria-label="Projeto 1">
-                  <div class="hero-feature-media">
-                    <img
-                      src="images/project-01.jpg"
-                      alt="Projeto 1, imagem de pré-visualização"
-                      width="800"
-                      height="500"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    <div class="hero-feature-overlay"></div>
-                    <div class="hero-feature-label">Branding</div>
-                  </div>
-                </a>
-
-                <a href="#projetos" class="hero-feature" aria-label="Projeto 2">
-                  <div class="hero-feature-media">
-                    <img
-                      src="images/project-02.jpg"
-                      alt="Projeto 2, imagem de pré-visualização"
-                      width="800"
-                      height="500"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    <div class="hero-feature-overlay"></div>
-                    <div class="hero-feature-label">Website</div>
-                  </div>
-                </a>
-
-                <a href="#projetos" class="hero-feature" aria-label="Projeto 3">
-                  <div class="hero-feature-media">
-                    <img
-                      src="images/project-03.jpg"
-                      alt="Projeto 3, imagem de pré-visualização"
-                      width="800"
-                      height="500"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    <div class="hero-feature-overlay"></div>
-                    <div class="hero-feature-label">Social</div>
-                  </div>
-                </a>
-
-                <a href="#projetos" class="hero-feature" aria-label="Projeto 4">
-                  <div class="hero-feature-media">
-                    <img
-                      src="images/project-04.jpg"
-                      alt="Projeto 4, imagem de pré-visualização"
-                      width="800"
-                      height="500"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    <div class="hero-feature-overlay"></div>
-                    <div class="hero-feature-label">Drone</div>
-                  </div>
-                </a>
-              </div>
-
-              <div class="hero-stats" aria-label="Indicadores" style="margin-top:6px;">
-                <div class="stat">
-                  <div class="stat-num">Premium</div>
-                  <div class="stat-label">Estética e execução</div>
-                </div>
-                <div class="stat">
-                  <div class="stat-num">Rápido</div>
-                  <div class="stat-label">Processo eficiente</div>
-                </div>
-                <div class="stat">
-                  <div class="stat-num">Claro</div>
-                  <div class="stat-label">Direção e consistência</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div><!-- /hero-grid -->
-      </div><!-- /container -->
+          <a class="hero-scroll" href="#servicos" aria-label="Scroll para a secção de serviços">
+            <span class="hero-scroll-dot" aria-hidden="true">↓</span>
+            <span>Explorar</span>
+          </a>
+        </div>
+      </div>
     </section>
 
     <!-- SERVICES -->
@@ -251,49 +157,49 @@
         </div>
 
         <div class="grid cards-3" role="list">
-          <article class="glass" role="listitem" style="padding:18px;">
-            <h3 style="margin:0 0 10px;font-weight:900;">Branding</h3>
+          <article class="glass" id="design-grafico" tabindex="-1" role="listitem" style="padding:18px;">
+            <h3 style="margin:0 0 10px;font-weight:900;">Design Gráfico</h3>
             <p style="margin:0;color:var(--ink-soft);line-height:1.6;">
-              Identidade visual, sistema gráfico e linguagem. Para marcas com direção e presença.
+              Identidade visual, sistemas e peças com intenção. Direção e consistência em cada detalhe.
             </p>
             <ul style="margin:12px 0 0;color:var(--ink-soft);line-height:1.6;">
-              <li>Naming e posicionamento</li>
-              <li>Identidade visual completa</li>
+              <li>Identidade e linguagem</li>
               <li>Aplicações e templates</li>
+              <li>Design editorial e peças</li>
             </ul>
           </article>
 
-          <article class="glass" role="listitem" style="padding:18px;">
-            <h3 style="margin:0 0 10px;font-weight:900;">Websites</h3>
+          <article class="glass" id="desenvolvimento-web" tabindex="-1" role="listitem" style="padding:18px;">
+            <h3 style="margin:0 0 10px;font-weight:900;">Desenvolvimento Web</h3>
             <p style="margin:0;color:var(--ink-soft);line-height:1.6;">
-              Landing pages e sites rápidos, responsivos e preparados para SEO.
+              Sites rápidos, responsivos e preparados para SEO. Experiência simples, premium e clara.
             </p>
             <ul style="margin:12px 0 0;color:var(--ink-soft);line-height:1.6;">
-              <li>Design UI e UX</li>
+              <li>UI e UX</li>
               <li>Performance e acessibilidade</li>
-              <li>SEO técnico e conteúdo</li>
+              <li>SEO técnico e estrutura</li>
             </ul>
           </article>
 
-          <article class="glass" role="listitem" style="padding:18px;">
-            <h3 style="margin:0 0 10px;font-weight:900;">Redes sociais</h3>
+          <article class="glass" id="social-media" tabindex="-1" role="listitem" style="padding:18px;">
+            <h3 style="margin:0 0 10px;font-weight:900;">Social Media</h3>
             <p style="margin:0;color:var(--ink-soft);line-height:1.6;">
-              Conteúdo consistente e visualmente forte para crescer com estratégia.
+              Conteúdo consistente e visualmente forte para crescer com ritmo e intenção.
             </p>
             <ul style="margin:12px 0 0;color:var(--ink-soft);line-height:1.6;">
               <li>Direção criativa</li>
-              <li>Calendário editorial</li>
-              <li>Design e motion</li>
+              <li>Calendário e consistência</li>
+              <li>Design, motion e edição</li>
             </ul>
           </article>
 
-          <article class="glass" role="listitem" style="padding:18px;">
-            <h3 style="margin:0 0 10px;font-weight:900;">Drone</h3>
+          <article class="glass" id="drone-media" tabindex="-1" role="listitem" style="padding:18px;">
+            <h3 style="margin:0 0 10px;font-weight:900;">Drone Media</h3>
             <p style="margin:0;color:var(--ink-soft);line-height:1.6;">
-              Imagens aéreas com impacto, para imobiliário, turismo e marcas.
+              Captação e edição com impacto. Imagens aéreas e conteúdos para marcas, turismo e imobiliário.
             </p>
             <ul style="margin:12px 0 0;color:var(--ink-soft);line-height:1.6;">
-              <li>Captação e edição</li>
+              <li>Captação e pós-produção</li>
               <li>Reels e campanhas</li>
               <li>Entrega rápida</li>
             </ul>
@@ -317,8 +223,8 @@
               Soluções por objetivos, com uma equipa pequena e foco em execução.
             </p>
             <ul style="margin:12px 0 0;color:var(--ink-soft);line-height:1.6;">
-              <li>Brand + Website</li>
-              <li>Website + Social</li>
+              <li>Design + Web</li>
+              <li>Web + Social</li>
               <li>Media + Campanha</li>
             </ul>
           </article>
@@ -341,7 +247,7 @@
           <article class="glass" style="padding:16px;">
             <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.10);background:rgba(255,255,255,0.03);aspect-ratio:16/9;"></div>
             <h3 style="margin:14px 0 6px;font-weight:900;">Projeto 01</h3>
-            <p style="margin:0;color:var(--ink-soft);line-height:1.6;">Branding e identidade visual.</p>
+            <p style="margin:0;color:var(--ink-soft);line-height:1.6;">Design e identidade visual.</p>
           </article>
 
           <article class="glass" style="padding:16px;">
@@ -353,7 +259,7 @@
           <article class="glass" style="padding:16px;">
             <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.10);background:rgba(255,255,255,0.03);aspect-ratio:16/9;"></div>
             <h3 style="margin:14px 0 6px;font-weight:900;">Projeto 03</h3>
-            <p style="margin:0;color:var(--ink-soft);line-height:1.6;">Conteúdo e redes sociais.</p>
+            <p style="margin:0;color:var(--ink-soft);line-height:1.6;">Conteúdo e social.</p>
           </article>
 
           <article class="glass" style="padding:16px;">
@@ -432,7 +338,7 @@
             <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
               <img
                 src="images/logo-white-vert.png"
-                alt="Sueste Creative Agency"
+                alt="Sueste - Creative Agency"
                 width="140"
                 height="80"
                 loading="lazy"
@@ -447,7 +353,7 @@
         <div style="margin-top:18px;" class="glass">
           <div style="padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
             <span style="color:var(--ink-soft);font-weight:800;">
-              Pronto para levantar ondas com a tua marca?
+              Pronto para criar impacto com direção?
             </span>
             <a class="btn secondary" href="#contacto">Pedir proposta</a>
           </div>
@@ -505,14 +411,14 @@
             </p>
 
             <div style="margin-top:14px;display:grid;gap:10px;color:var(--ink-soft);line-height:1.6;">
-              <div><strong style="color:var(--ink);">Email:</strong> hello@teudominio.pt</div>
+              <div><strong style="color:var(--ink);">Email:</strong> info@sueste-creative.com</div>
+              <div><strong style="color:var(--ink);">Telefone:</strong> +351 965 494 727</div>
               <div><strong style="color:var(--ink);">Local:</strong> Algarve, Portugal</div>
-              <div><strong style="color:var(--ink);">Serviços:</strong> Branding, Websites, Social, Drone, Media</div>
+              <div><strong style="color:var(--ink);">Serviços:</strong> Design Gráfico, Social Media, Desenvolvimento Web, Drone Media</div>
             </div>
           </div>
 
           <div class="glass" style="padding:22px;">
-            <!-- Form works with Formspree or similar (replace action) -->
             <form
               class="contact-form"
               action="https://formspree.io/f/SEU_ID_AQUI"
@@ -552,12 +458,11 @@
                     style="width:100%;border-radius:14px;border:1px solid rgba(255,255,255,0.14);background:rgba(255,255,255,0.05);padding:12px 12px;color:var(--ink);outline:none;"
                   >
                     <option value="" selected disabled>Seleciona uma opção</option>
-                    <option>Branding</option>
-                    <option>Website</option>
-                    <option>Redes sociais</option>
-                    <option>Drone</option>
-                    <option>Media</option>
-                    <option>Pack (Brand + Website)</option>
+                    <option>Design Gráfico</option>
+                    <option>Desenvolvimento Web</option>
+                    <option>Social Media</option>
+                    <option>Drone Media</option>
+                    <option>Outro</option>
                   </select>
                 </label>
 
@@ -593,7 +498,7 @@
           <div style="display:flex;align-items:center;gap:12px;">
             <img
               src="images/logo-white-hor.png"
-              alt="Sueste Creative Agency"
+              alt="Sueste - Creative Agency"
               width="160"
               height="36"
               loading="lazy"
@@ -601,7 +506,7 @@
               style="height:24px;width:auto;opacity:.9;"
             />
             <span style="color:var(--ink-faint);font-weight:700;">
-              Branding, Websites, Social e Media.
+              Design, Web, Social e Drone Media.
             </span>
           </div>
 
@@ -613,10 +518,10 @@
 
         <div style="margin-top:12px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
           <small style="color:var(--ink-faint);">
-            © <span id="year"></span> Sueste Creative Agency. Todos os direitos reservados.
+            © <span id="year"></span> Sueste - Creative Agency. Todos os direitos reservados.
           </small>
           <small style="color:var(--ink-faint);">
-            Feito no Algarve.
+            Feito no Algarve, Portugal.
           </small>
         </div>
       </div>
