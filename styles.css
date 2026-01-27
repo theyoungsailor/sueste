@@ -558,3 +558,41 @@ input:focus, textarea:focus, select:focus{
 .site-footer .glass{
   border-radius:var(--radius);
 }
+.hero-content{
+  grid-template-rows: 1.10fr auto 0.90fr;
+}
+
+/* FIX 2: keep pills static and remove scroll from the actions flow */
+.hero-actions-box{
+  position:relative;
+  justify-content:flex-start;
+  gap:28px;
+}
+
+/* Center the scroll indicator on the screen (vertically), independent from pills */
+.scroll-indicator{
+  position:absolute;
+  right:clamp(24px, 6vw, 64px);
+  top:50%;
+  transform:translateY(-50%);
+  z-index:3;
+  align-items:center;
+  justify-content:center;
+}
+
+/* optional: tiny polish so the label aligns perfectly */
+.scroll-label{
+  text-align:center;
+}
+
+/* Mobile: avoid overlap, move scroll indicator to bottom center */
+@media (max-width: 900px){
+  .scroll-indicator{
+    position:absolute;
+    right:auto;
+    left:50%;
+    top:auto;
+    bottom:clamp(18px, 3.2vh, 34px);
+    transform:translateX(-50%);
+  }
+}
