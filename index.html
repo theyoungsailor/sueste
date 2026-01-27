@@ -13,7 +13,9 @@
   <link rel="apple-touch-icon" href="images/fav-icon.png" />
 
   <link rel="preload" as="image" href="images/logo-white-hor.png" />
-  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Cache bust: bump the v= value when deploying to GitHub Pages -->
+  <link rel="stylesheet" href="./styles.css?v=20260127" />
 </head>
 
 <body>
@@ -81,16 +83,17 @@
               <a class="pill-link" href="#desenvolvimento-web">Desenvolvimento Web</a>
               <a class="pill-link" href="#drone-media">Drone Media</a>
             </div>
-
-            <a class="scroll-indicator" href="#servicos" aria-label="Scroll para baixo">
-              <span class="scroll-track" aria-hidden="true">
-                <span class="scroll-ball" aria-hidden="true"></span>
-              </span>
-              <span class="scroll-label">Explore</span>
-            </a>
           </div>
         </div>
       </div>
+
+      <!-- Scroll indicator moved out of the pills box so it can be positioned relative to the hero -->
+      <a class="scroll-indicator" href="#servicos" aria-label="Scroll para baixo">
+        <span class="scroll-track" aria-hidden="true">
+          <span class="scroll-ball" aria-hidden="true"></span>
+        </span>
+        <span class="scroll-label">Explore</span>
+      </a>
     </section>
 
     <!-- SERVICES -->
@@ -418,6 +421,6 @@
     })();
   </script>
 
-  <script src="waves.js"></script>
+  <script src="./waves.js?v=20260127"></script>
 </body>
 </html>
