@@ -24,29 +24,22 @@
     <!-- HERO -->
     <section class="hero hero-video" aria-label="Hero">
       <div class="hero-video-wrap" aria-hidden="true">
-        <video
-          class="hero-video-el"
-          autoplay
-          muted
-          loop
-          playsinline
-          preload="metadata"
-        >
+        <video class="hero-video-el" autoplay muted loop playsinline preload="metadata">
           <source src="images/hero-video.mp4" type="video/mp4" />
         </video>
       </div>
 
       <div class="hero-overlay" aria-hidden="true"></div>
 
-      <!-- HEADER OVER VIDEO (no bar) -->
+      <!-- HEADER OVER VIDEO -->
       <header class="site-header site-header--overlay" id="topo" role="banner">
         <div class="container header-inner">
           <a class="brand" href="#topo" aria-label="Sueste - Creative Agency, voltar ao topo">
             <img
               src="images/logo-white-hor.png"
               alt="Sueste - Creative Agency"
-              width="360"
-              height="78"
+              width="520"
+              height="120"
               loading="eager"
               decoding="async"
               class="brand-logo brand-logo--xl"
@@ -70,18 +63,18 @@
 
       <div class="container hero-content">
         <div class="hero-left">
-          <!-- TYPED HEADLINE -->
-          <h1 class="hero-typed" aria-label="O que move nem sempre se vê. Mas o impacto é inevitável.">
-            <span class="typed-row">
-              <span id="typed-prefix" class="typed-prefix" data-text="O que move nem sempre se vê. Mas o "></span>
-              <span id="typed-slow" class="typed-slow" data-text="impacto é "></span>
-              <span id="typed-highlight" class="typed-highlight" data-text="inevitável."></span>
-              <span class="typed-caret" aria-hidden="true"></span>
-            </span>
-          </h1>
+          <div class="hero-title-box">
+            <h1 class="hero-typed" aria-label="O que move nem sempre se vê. Mas o impacto é inevitável.">
+              <span class="typed-row">
+                <span id="typed-prefix" class="typed-prefix" data-text="O que move nem sempre se vê. Mas o "></span>
+                <span id="typed-slow" class="typed-slow" data-text="impacto é "></span>
+                <span id="typed-highlight" class="typed-highlight" data-text="inevitável."></span>
+                <span class="typed-caret" aria-hidden="true"></span>
+              </span>
+            </h1>
+          </div>
 
-          <!-- UNDERLINE AREA (moved up, no background card) -->
-          <div class="hero-under">
+          <div class="hero-actions-box">
             <div class="hero-pills" role="navigation" aria-label="Atalhos para serviços">
               <a class="pill-link" href="#design-grafico">Design Gráfico</a>
               <a class="pill-link" href="#social-media">Social Media</a>
@@ -89,7 +82,6 @@
               <a class="pill-link" href="#drone-media">Drone Media</a>
             </div>
 
-            <!-- SCROLL INDICATOR (replaces Explore button) -->
             <a class="scroll-indicator" href="#servicos" aria-label="Scroll para baixo">
               <span class="scroll-track" aria-hidden="true">
                 <span class="scroll-ball" aria-hidden="true"></span>
@@ -372,7 +364,6 @@
       const prefixEl = document.getElementById("typed-prefix");
       const slowEl = document.getElementById("typed-slow");
       const hiEl = document.getElementById("typed-highlight");
-
       if (!prefixEl || !slowEl || !hiEl) return;
 
       const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -397,14 +388,12 @@
       let j = 0;
       let k = 0;
 
-      const total = prefix.length + slow.length + hi.length;
       const slowStart = prefix.length;
-      const slowEnd = prefix.length + slow.length + hi.length;
 
       function delayFor(pos) {
         if (pos < slowStart) return 16;
-        const t = (pos - slowStart) / Math.max(1, slowEnd - slowStart);
-        return 70 + t * 160;
+        const t = (pos - slowStart) / Math.max(1, slow.length + hi.length);
+        return 90 + (t * 190);
       }
 
       function tick() {
@@ -429,7 +418,6 @@
     })();
   </script>
 
-  <!-- WAVES -->
   <script src="waves.js"></script>
 </body>
 </html>
