@@ -318,6 +318,11 @@ main,
   .site-nav.is-open{display:flex}
 }
 
+/* Hero content closer to the left/right edges (only hero) */
+.hero .container.hero-content{
+  width:min(var(--container), calc(100% - 24px));
+}
+
 .hero-content{
   position:relative;
   z-index:2;
@@ -430,7 +435,7 @@ main,
   outline-offset:3px;
 }
 
-/* Scroll indicator: centered on the screen inside the hero */
+/* Scroll indicator: bottom centered relative to the hero viewport */
 .scroll-indicator{
   display:flex;
   flex-direction:column;
@@ -440,10 +445,13 @@ main,
   text-decoration:none;
   user-select:none;
   -webkit-tap-highlight-color: transparent;
+
   position:absolute;
-  top:50%;
-  right:clamp(22px, 6vw, 64px);
-  transform:translateY(-50%);
+  left:50%;
+  bottom:clamp(22px, 4vh, 46px);
+  top:auto;
+  right:auto;
+  transform:translateX(-50%);
   z-index:3;
 }
 
@@ -510,20 +518,15 @@ main,
     align-items:flex-start;
     gap:14px;
   }
-
-  .scroll-indicator{
-    position:absolute;
-    top:auto;
-    bottom:clamp(16px, 3.2vh, 34px);
-    right:auto;
-    left:50%;
-    transform:translateX(-50%);
-  }
 }
 
 @media (max-width: 560px){
   .container{
     width:min(var(--container), calc(100% - 28px));
+  }
+
+  .hero .container.hero-content{
+    width:min(var(--container), calc(100% - 20px));
   }
 
   .brand-logo--xl{
@@ -536,6 +539,10 @@ main,
 
   .hero-title-box{
     min-height:clamp(180px, 22vh, 260px);
+  }
+
+  .scroll-indicator{
+    bottom:clamp(14px, 3.4vh, 28px);
   }
 }
 
