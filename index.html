@@ -5,83 +5,53 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#070A12" />
 
-  <title>Sueste - Creative Agency | Design Gráfico, Web, Social Media e Drone</title>
+  <title>Sueste - Creative Agency | Design, Web, Social Media e Drone</title>
   <meta name="description" content="Sueste - Creative Agency. Movimento com intenção para criar impacto. Design Gráfico, Social Media, Desenvolvimento Web e Drone Media no Algarve, Portugal." />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://teudominio.pt/" />
 
   <link rel="icon" href="images/fav-icon.png" />
   <link rel="apple-touch-icon" href="images/fav-icon.png" />
 
   <link rel="preload" as="image" href="images/logo-white-hor.png" />
   <link rel="stylesheet" href="styles.css" />
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@graph":[
-      {
-        "@type":"Organization",
-        "name":"Sueste - Creative Agency",
-        "url":"https://teudominio.pt/",
-        "logo":"https://teudominio.pt/images/logo-white-hor.png",
-        "email":"info@sueste-creative.com",
-        "telephone":"+351965494727",
-        "areaServed":"PT",
-        "address":{
-          "@type":"PostalAddress",
-          "addressLocality":"Algarve",
-          "addressCountry":"PT"
-        },
-        "description":"Agência criativa premium no Algarve, focada em movimento, direção e impacto. Design Gráfico, Social Media, Desenvolvimento Web e Drone Media."
-      },
-      {
-        "@type":"WebSite",
-        "name":"Sueste - Creative Agency",
-        "url":"https://teudominio.pt/"
-      }
-    ]
-  }
-  </script>
 </head>
 
 <body>
   <canvas id="bg-waves" aria-hidden="true"></canvas>
   <a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
 
-  <!-- HEADER -->
-  <header class="site-header" id="topo" role="banner">
+  <!-- HEADER (invisible bar, pills only) -->
+  <header class="site-header site-header--invisible" id="topo" role="banner">
     <div class="container header-inner">
       <a class="brand" href="#topo" aria-label="Sueste - Creative Agency, voltar ao topo">
         <img
           src="images/logo-white-hor.png"
           alt="Sueste - Creative Agency"
-          width="180"
-          height="40"
+          width="220"
+          height="48"
           loading="eager"
           decoding="async"
           class="brand-logo"
         />
-        <span class="sr-only">Sueste - Creative Agency</span>
       </a>
 
       <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="site-nav">
         <span class="nav-toggle-lines" aria-hidden="true"></span>
       </button>
 
-      <nav class="site-nav glass" id="site-nav" aria-label="Navegação principal">
-        <a href="#servicos">Serviços</a>
-        <a href="#projetos">Projetos</a>
-        <a href="#processo">Processo</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#testemunhos">Testemunhos</a>
-        <a class="nav-cta" href="#contacto">Pedir proposta</a>
+      <nav class="site-nav site-nav--pills" id="site-nav" aria-label="Navegação principal">
+        <a class="nav-pill" href="#servicos">Serviços</a>
+        <a class="nav-pill" href="#projetos">Projetos</a>
+        <a class="nav-pill" href="#processo">Processo</a>
+        <a class="nav-pill" href="#sobre">Sobre</a>
+        <a class="nav-pill" href="#testemunhos">Testemunhos</a>
+        <a class="nav-pill nav-pill--cta" href="#contacto">Pedir proposta</a>
       </nav>
     </div>
   </header>
 
   <main id="conteudo">
-    <!-- HERO (VIDEO + TYPING + PILLS) -->
+    <!-- HERO -->
     <section class="hero hero-video" aria-label="Hero">
       <div class="hero-video-wrap" aria-hidden="true">
         <video
@@ -91,7 +61,6 @@
           loop
           playsinline
           preload="metadata"
-          poster="images/hero-poster.jpg"
         >
           <source src="images/hero-video.mp4" type="video/mp4" />
         </video>
@@ -100,37 +69,22 @@
       <div class="hero-overlay" aria-hidden="true"></div>
 
       <div class="container hero-content">
-        <div class="hero-top">
-          <img
-            src="images/logo-white-hor.png"
-            alt="Sueste - Creative Agency"
-            width="220"
-            height="48"
-            loading="eager"
-            decoding="async"
-            class="hero-logo"
-          />
-        </div>
-
         <div class="hero-left">
-          <h1 class="hero-typed">
-            <span class="sr-only">O que move nem sempre se vê. Mas o impacto é inevitável.</span>
-            <span
-              id="hero-typed-text"
-              class="hero-typed-text"
-              aria-hidden="true"
-              data-text="O que move nem sempre se vê. Mas o impacto é inevitável."
-            ></span>
-            <span class="typed-caret" aria-hidden="true"></span>
+          <!-- TYPED HEADLINE -->
+          <h1 class="hero-typed" aria-label="O que move nem sempre se vê. Mas o impacto é inevitável.">
+            <span class="typed-row">
+              <span id="typed-prefix" class="typed-prefix" data-text="O que move nem sempre se vê. Mas o impacto é "></span>
+              <span id="typed-highlight" class="typed-highlight" data-text="inevitável."></span>
+              <span class="typed-caret" aria-hidden="true"></span>
+            </span>
           </h1>
 
-          <p class="hero-sub">
-            O movimento vem primeiro. O impacto é inevitável.
-          </p>
+          <p class="hero-sub">O movimento vem primeiro. O impacto é inevitável.</p>
         </div>
 
+        <!-- bottom pills: no extra card behind -->
         <div class="hero-bottom">
-          <div class="hero-pills glass" role="navigation" aria-label="Atalhos para serviços">
+          <div class="hero-pills" role="navigation" aria-label="Atalhos para serviços">
             <a class="pill-link" href="#design-grafico">Design Gráfico</a>
             <a class="pill-link" href="#social-media">Social Media</a>
             <a class="pill-link" href="#desenvolvimento-web">Desenvolvimento Web</a>
@@ -160,73 +114,29 @@
           <article class="glass" id="design-grafico" tabindex="-1" role="listitem" style="padding:18px;">
             <h3 style="margin:0 0 10px;font-weight:900;">Design Gráfico</h3>
             <p style="margin:0;color:var(--ink-soft);line-height:1.6;">
-              Identidade visual, sistemas e peças com intenção. Direção e consistência em cada detalhe.
+              Identidade visual, sistemas e peças com intenção.
             </p>
-            <ul style="margin:12px 0 0;color:var(--ink-soft);line-height:1.6;">
-              <li>Identidade e linguagem</li>
-              <li>Aplicações e templates</li>
-              <li>Design editorial e peças</li>
-            </ul>
-          </article>
-
-          <article class="glass" id="desenvolvimento-web" tabindex="-1" role="listitem" style="padding:18px;">
-            <h3 style="margin:0 0 10px;font-weight:900;">Desenvolvimento Web</h3>
-            <p style="margin:0;color:var(--ink-soft);line-height:1.6;">
-              Sites rápidos, responsivos e preparados para SEO. Experiência simples, premium e clara.
-            </p>
-            <ul style="margin:12px 0 0;color:var(--ink-soft);line-height:1.6;">
-              <li>UI e UX</li>
-              <li>Performance e acessibilidade</li>
-              <li>SEO técnico e estrutura</li>
-            </ul>
           </article>
 
           <article class="glass" id="social-media" tabindex="-1" role="listitem" style="padding:18px;">
             <h3 style="margin:0 0 10px;font-weight:900;">Social Media</h3>
             <p style="margin:0;color:var(--ink-soft);line-height:1.6;">
-              Conteúdo consistente e visualmente forte para crescer com ritmo e intenção.
+              Conteúdo consistente e visualmente forte.
             </p>
-            <ul style="margin:12px 0 0;color:var(--ink-soft);line-height:1.6;">
-              <li>Direção criativa</li>
-              <li>Calendário e consistência</li>
-              <li>Design, motion e edição</li>
-            </ul>
+          </article>
+
+          <article class="glass" id="desenvolvimento-web" tabindex="-1" role="listitem" style="padding:18px;">
+            <h3 style="margin:0 0 10px;font-weight:900;">Desenvolvimento Web</h3>
+            <p style="margin:0;color:var(--ink-soft);line-height:1.6;">
+              Sites rápidos, responsivos e preparados para SEO.
+            </p>
           </article>
 
           <article class="glass" id="drone-media" tabindex="-1" role="listitem" style="padding:18px;">
             <h3 style="margin:0 0 10px;font-weight:900;">Drone Media</h3>
             <p style="margin:0;color:var(--ink-soft);line-height:1.6;">
-              Captação e edição com impacto. Imagens aéreas e conteúdos para marcas, turismo e imobiliário.
+              Captação e edição com impacto.
             </p>
-            <ul style="margin:12px 0 0;color:var(--ink-soft);line-height:1.6;">
-              <li>Captação e pós-produção</li>
-              <li>Reels e campanhas</li>
-              <li>Entrega rápida</li>
-            </ul>
-          </article>
-
-          <article class="glass" role="listitem" style="padding:18px;">
-            <h3 style="margin:0 0 10px;font-weight:900;">Media</h3>
-            <p style="margin:0;color:var(--ink-soft);line-height:1.6;">
-              Fotografia, vídeo e conteúdo para comunicar com clareza e estética premium.
-            </p>
-            <ul style="margin:12px 0 0;color:var(--ink-soft);line-height:1.6;">
-              <li>Produção e pós</li>
-              <li>Conteúdo para ads</li>
-              <li>Guias e templates</li>
-            </ul>
-          </article>
-
-          <article class="glass" role="listitem" style="padding:18px;">
-            <h3 style="margin:0 0 10px;font-weight:900;">Pacotes</h3>
-            <p style="margin:0;color:var(--ink-soft);line-height:1.6;">
-              Soluções por objetivos, com uma equipa pequena e foco em execução.
-            </p>
-            <ul style="margin:12px 0 0;color:var(--ink-soft);line-height:1.6;">
-              <li>Design + Web</li>
-              <li>Web + Social</li>
-              <li>Media + Campanha</li>
-            </ul>
           </article>
         </div>
       </div>
@@ -238,39 +148,21 @@
         <div class="section-head">
           <p class="kicker">PORTFÓLIO</p>
           <h2>Alguns projetos que criaram impacto</h2>
-          <p class="section-sub">
-            Quatro exemplos. Aqui entram imagens e links mais tarde.
-          </p>
+          <p class="section-sub">Exemplos curtos, sem ruído. Depois ligamos a cases reais.</p>
         </div>
 
         <div class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;">
           <article class="glass" style="padding:16px;">
             <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.10);background:rgba(255,255,255,0.03);aspect-ratio:16/9;"></div>
             <h3 style="margin:14px 0 6px;font-weight:900;">Projeto 01</h3>
-            <p style="margin:0;color:var(--ink-soft);line-height:1.6;">Design e identidade visual.</p>
+            <p style="margin:0;color:var(--ink-soft);line-height:1.6;">Identidade e design.</p>
           </article>
 
           <article class="glass" style="padding:16px;">
             <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.10);background:rgba(255,255,255,0.03);aspect-ratio:16/9;"></div>
             <h3 style="margin:14px 0 6px;font-weight:900;">Projeto 02</h3>
-            <p style="margin:0;color:var(--ink-soft);line-height:1.6;">Website responsivo e SEO.</p>
+            <p style="margin:0;color:var(--ink-soft);line-height:1.6;">Website e performance.</p>
           </article>
-
-          <article class="glass" style="padding:16px;">
-            <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.10);background:rgba(255,255,255,0.03);aspect-ratio:16/9;"></div>
-            <h3 style="margin:14px 0 6px;font-weight:900;">Projeto 03</h3>
-            <p style="margin:0;color:var(--ink-soft);line-height:1.6;">Conteúdo e social.</p>
-          </article>
-
-          <article class="glass" style="padding:16px;">
-            <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.10);background:rgba(255,255,255,0.03);aspect-ratio:16/9;"></div>
-            <h3 style="margin:14px 0 6px;font-weight:900;">Projeto 04</h3>
-            <p style="margin:0;color:var(--ink-soft);line-height:1.6;">Drone e media.</p>
-          </article>
-        </div>
-
-        <div style="margin-top:18px;">
-          <a class="btn secondary" href="#contacto">Pedir proposta</a>
         </div>
       </div>
     </section>
@@ -281,29 +173,21 @@
         <div class="section-head">
           <p class="kicker">PROCESSO</p>
           <h2>Direção clara, execução rápida</h2>
-          <p class="section-sub">
-            Um processo simples, com alinhamento e entregas objetivas.
-          </p>
+          <p class="section-sub">Poucas etapas, máximo alinhamento.</p>
         </div>
 
         <div class="grid" style="grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;">
           <div class="glass" style="padding:18px;">
             <h3 style="margin:0 0 8px;font-weight:900;">1. Descoberta</h3>
-            <p style="margin:0;color:var(--ink-soft);line-height:1.6;">
-              Objetivos, público, referências e prioridades.
-            </p>
+            <p style="margin:0;color:var(--ink-soft);line-height:1.6;">Objetivos e referências.</p>
           </div>
           <div class="glass" style="padding:18px;">
             <h3 style="margin:0 0 8px;font-weight:900;">2. Direção</h3>
-            <p style="margin:0;color:var(--ink-soft);line-height:1.6;">
-              Estrutura, linguagem e proposta criativa.
-            </p>
+            <p style="margin:0;color:var(--ink-soft);line-height:1.6;">Estrutura e linguagem.</p>
           </div>
           <div class="glass" style="padding:18px;">
             <h3 style="margin:0 0 8px;font-weight:900;">3. Entrega</h3>
-            <p style="margin:0;color:var(--ink-soft);line-height:1.6;">
-              Produção, validação e ficheiros prontos a usar.
-            </p>
+            <p style="margin:0;color:var(--ink-soft);line-height:1.6;">Ficheiros prontos a usar.</p>
           </div>
         </div>
       </div>
@@ -320,42 +204,16 @@
             </h2>
             <p style="margin:12px 0 0;color:var(--ink-soft);line-height:1.7;">
               A Sueste nasce do Algarve, inspirada pelo vento que muda direções e levanta ondas.
-              Fazemos o mesmo no digital: criamos movimento com intenção, para o impacto acontecer.
             </p>
           </div>
 
-          <div class="glass" style="padding:22px;display:flex;flex-direction:column;justify-content:space-between;gap:14px;">
-            <div>
-              <h3 style="margin:0 0 10px;font-weight:900;">O que podes esperar</h3>
-              <ul style="margin:0;color:var(--ink-soft);line-height:1.7;">
-                <li>Clareza e consistência</li>
-                <li>Estética premium</li>
-                <li>Performance e rapidez</li>
-                <li>Ficheiros e sistemas reutilizáveis</li>
-              </ul>
-            </div>
-
-            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
-              <img
-                src="images/logo-white-vert.png"
-                alt="Sueste - Creative Agency"
-                width="140"
-                height="80"
-                loading="lazy"
-                decoding="async"
-                style="height:40px;width:auto;opacity:.9;"
-              />
-              <a class="btn primary" href="#contacto">Falar com a Sueste</a>
-            </div>
-          </div>
-        </div>
-
-        <div style="margin-top:18px;" class="glass">
-          <div style="padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
-            <span style="color:var(--ink-soft);font-weight:800;">
-              Pronto para criar impacto com direção?
-            </span>
-            <a class="btn secondary" href="#contacto">Pedir proposta</a>
+          <div class="glass" style="padding:22px;">
+            <h3 style="margin:0 0 10px;font-weight:900;">O que podes esperar</h3>
+            <ul style="margin:0;color:var(--ink-soft);line-height:1.7;">
+              <li>Clareza e consistência</li>
+              <li>Estética premium</li>
+              <li>Performance e rapidez</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -367,29 +225,27 @@
         <div class="section-head">
           <p class="kicker">TESTEMUNHOS</p>
           <h2>Feedback que fala por si</h2>
-          <p class="section-sub">
-            Coloca aqui 2 a 3 testemunhos reais quando estiverem prontos.
-          </p>
+          <p class="section-sub">Curto, direto e credível.</p>
         </div>
 
         <div class="grid cards-3">
           <figure class="glass" style="padding:18px;margin:0;">
             <blockquote style="margin:0;color:var(--ink-soft);line-height:1.7;">
-              “Texto de testemunho curto e direto. Resultados claros e estética premium.”
+              “Texto de testemunho curto e direto.”
             </blockquote>
             <figcaption style="margin-top:12px;font-weight:900;">Cliente 01</figcaption>
           </figure>
 
           <figure class="glass" style="padding:18px;margin:0;">
             <blockquote style="margin:0;color:var(--ink-soft);line-height:1.7;">
-              “Boa comunicação, rápido, e com atenção a detalhe. Recomendamos.”
+              “Boa comunicação, rápido, e com atenção a detalhe.”
             </blockquote>
             <figcaption style="margin-top:12px;font-weight:900;">Cliente 02</figcaption>
           </figure>
 
           <figure class="glass" style="padding:18px;margin:0;">
             <blockquote style="margin:0;color:var(--ink-soft);line-height:1.7;">
-              “O site ficou leve, elegante e com direção. Muito acima do esperado.”
+              “O site ficou leve, elegante e com direção.”
             </blockquote>
             <figcaption style="margin-top:12px;font-weight:900;">Cliente 03</figcaption>
           </figure>
@@ -407,81 +263,36 @@
               Vamos falar sobre o teu projeto
             </h2>
             <p style="margin:12px 0 0;color:var(--ink-soft);line-height:1.7;">
-              Envia uma mensagem com o essencial. Respondemos com próximos passos e proposta.
+              Envia uma mensagem com o essencial. Respondemos com próximos passos.
             </p>
 
             <div style="margin-top:14px;display:grid;gap:10px;color:var(--ink-soft);line-height:1.6;">
+              <div><strong style="color:var(--ink);">Sueste - Creative Agency</strong></div>
               <div><strong style="color:var(--ink);">Email:</strong> info@sueste-creative.com</div>
               <div><strong style="color:var(--ink);">Telefone:</strong> +351 965 494 727</div>
               <div><strong style="color:var(--ink);">Local:</strong> Algarve, Portugal</div>
-              <div><strong style="color:var(--ink);">Serviços:</strong> Design Gráfico, Social Media, Desenvolvimento Web, Drone Media</div>
             </div>
           </div>
 
           <div class="glass" style="padding:22px;">
-            <form
-              class="contact-form"
-              action="https://formspree.io/f/SEU_ID_AQUI"
-              method="POST"
-              aria-label="Formulário de contacto"
-            >
+            <form class="contact-form" action="#" method="POST" aria-label="Formulário de contacto">
               <div style="display:grid;gap:12px;">
                 <label style="display:grid;gap:8px;">
                   <span style="font-weight:800;color:var(--ink-soft);font-size:13px;">Nome</span>
-                  <input
-                    name="name"
-                    type="text"
-                    autocomplete="name"
-                    required
-                    placeholder="O teu nome"
-                    style="width:100%;border-radius:14px;border:1px solid rgba(255,255,255,0.14);background:rgba(255,255,255,0.05);padding:12px 12px;color:var(--ink);outline:none;"
-                  />
+                  <input name="name" type="text" autocomplete="name" required placeholder="O teu nome" />
                 </label>
 
                 <label style="display:grid;gap:8px;">
                   <span style="font-weight:800;color:var(--ink-soft);font-size:13px;">Email</span>
-                  <input
-                    name="email"
-                    type="email"
-                    autocomplete="email"
-                    required
-                    placeholder="teuemail@exemplo.com"
-                    style="width:100%;border-radius:14px;border:1px solid rgba(255,255,255,0.14);background:rgba(255,255,255,0.05);padding:12px 12px;color:var(--ink);outline:none;"
-                  />
-                </label>
-
-                <label style="display:grid;gap:8px;">
-                  <span style="font-weight:800;color:var(--ink-soft);font-size:13px;">O que precisas</span>
-                  <select
-                    name="service"
-                    required
-                    style="width:100%;border-radius:14px;border:1px solid rgba(255,255,255,0.14);background:rgba(255,255,255,0.05);padding:12px 12px;color:var(--ink);outline:none;"
-                  >
-                    <option value="" selected disabled>Seleciona uma opção</option>
-                    <option>Design Gráfico</option>
-                    <option>Desenvolvimento Web</option>
-                    <option>Social Media</option>
-                    <option>Drone Media</option>
-                    <option>Outro</option>
-                  </select>
+                  <input name="email" type="email" autocomplete="email" required placeholder="teuemail@exemplo.com" />
                 </label>
 
                 <label style="display:grid;gap:8px;">
                   <span style="font-weight:800;color:var(--ink-soft);font-size:13px;">Mensagem</span>
-                  <textarea
-                    name="message"
-                    required
-                    rows="5"
-                    placeholder="Conta-nos o objetivo, prazo e qualquer referência útil."
-                    style="width:100%;border-radius:14px;border:1px solid rgba(255,255,255,0.14);background:rgba(255,255,255,0.05);padding:12px 12px;color:var(--ink);outline:none;resize:vertical;min-height:140px;"
-                  ></textarea>
+                  <textarea name="message" required rows="5" placeholder="Conta-nos o objetivo e o prazo."></textarea>
                 </label>
 
                 <button class="btn primary" type="submit">Enviar</button>
-
-                <p style="margin:0;color:var(--ink-faint);font-size:13px;line-height:1.6;">
-                  Ao enviar, concorda em ser contactado apenas para responder ao pedido.
-                </p>
               </div>
             </form>
           </div>
@@ -505,9 +316,7 @@
               decoding="async"
               style="height:24px;width:auto;opacity:.9;"
             />
-            <span style="color:var(--ink-faint);font-weight:700;">
-              Design, Web, Social e Drone Media.
-            </span>
+            <span style="color:var(--ink-faint);font-weight:700;">Algarve, Portugal</span>
           </div>
 
           <div style="display:flex;gap:10px;flex-wrap:wrap;">
@@ -521,14 +330,14 @@
             © <span id="year"></span> Sueste - Creative Agency. Todos os direitos reservados.
           </small>
           <small style="color:var(--ink-faint);">
-            Feito no Algarve, Portugal.
+            info@sueste-creative.com
           </small>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- NAV + YEAR (keep this) -->
+  <!-- NAV + YEAR + TYPING -->
   <script>
     (function () {
       const toggle = document.querySelector(".nav-toggle");
@@ -559,51 +368,62 @@
 
       const y = document.getElementById("year");
       if (y) y.textContent = String(new Date().getFullYear());
+
+      const prefixEl = document.getElementById("typed-prefix");
+      const hiEl = document.getElementById("typed-highlight");
+      if (!prefixEl || !hiEl) return;
+
+      const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduceMotion) {
+        prefixEl.textContent = prefixEl.getAttribute("data-text") || "";
+        hiEl.textContent = hiEl.getAttribute("data-text") || "";
+        const caret = document.querySelector(".typed-caret");
+        if (caret) caret.style.display = "none";
+        return;
+      }
+
+      const prefix = prefixEl.getAttribute("data-text") || "";
+      const hi = hiEl.getAttribute("data-text") || "";
+
+      prefixEl.textContent = "";
+      hiEl.textContent = "";
+
+      let i = 0;
+      let j = 0;
+
+      const total = prefix.length + hi.length;
+      const slowZone = Math.max(0, total - 12);
+      const tailZone = Math.max(0, total - 3);
+
+      function delayFor(k) {
+        if (k < slowZone) return 14;
+        if (k < tailZone) {
+          const t = (k - slowZone) / Math.max(1, tailZone - slowZone);
+          return 14 + t * 70;
+        }
+        const t2 = (k - tailZone) / Math.max(1, total - tailZone);
+        return 84 + t2 * 120;
+      }
+
+      function tick() {
+        const k = i + j;
+
+        if (i < prefix.length) {
+          i += 1;
+          prefixEl.textContent = prefix.slice(0, i);
+        } else if (j < hi.length) {
+          j += 1;
+          hiEl.textContent = hi.slice(0, j);
+        } else {
+          return;
+        }
+
+        setTimeout(tick, delayFor(k));
+      }
+
+      setTimeout(tick, 200);
     })();
   </script>
-<script>
-  (function () {
-    const el = document.getElementById("hero-typed-text");
-    if (!el) return;
-
-    const full = el.getAttribute("data-text") || "";
-    if (!full) return;
-
-    const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduceMotion) {
-      el.textContent = full;
-      const caret = document.querySelector(".typed-caret");
-      if (caret) caret.style.display = "none";
-      return;
-    }
-
-    let i = 0;
-    const n = full.length;
-
-    const slowZone = Math.max(0, n - 12);
-    const tailZone = Math.max(0, n - 3);
-
-    function delayFor(idx) {
-      if (idx < slowZone) return 14;
-      if (idx < tailZone) {
-        const t = (idx - slowZone) / Math.max(1, tailZone - slowZone);
-        return 14 + t * 70;
-      }
-      const t2 = (idx - tailZone) / Math.max(1, n - tailZone);
-      return 84 + t2 * 120;
-    }
-
-    function tick() {
-      i += 1;
-      el.textContent = full.slice(0, i);
-      if (i >= n) return;
-      setTimeout(tick, delayFor(i));
-    }
-
-    el.textContent = "";
-    setTimeout(tick, 200);
-  })();
-</script>
 
   <!-- WAVES -->
   <script src="waves.js"></script>
