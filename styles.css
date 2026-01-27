@@ -333,6 +333,7 @@ main,
   display:grid;
   grid-template-rows:auto auto;
   row-gap:clamp(18px,2.6vw,30px);
+  transform: translateY(-28px);
 }
 
 .hero-title-box{
