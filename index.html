@@ -20,36 +20,6 @@
   <canvas id="bg-waves" aria-hidden="true"></canvas>
   <a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
 
-  <!-- HEADER (invisible bar, pills only) -->
-  <header class="site-header site-header--invisible" id="topo" role="banner">
-    <div class="container header-inner">
-      <a class="brand" href="#topo" aria-label="Sueste - Creative Agency, voltar ao topo">
-        <img
-          src="images/logo-white-hor.png"
-          alt="Sueste - Creative Agency"
-          width="220"
-          height="48"
-          loading="eager"
-          decoding="async"
-          class="brand-logo"
-        />
-      </a>
-
-      <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="site-nav">
-        <span class="nav-toggle-lines" aria-hidden="true"></span>
-      </button>
-
-      <nav class="site-nav site-nav--pills" id="site-nav" aria-label="Navegação principal">
-        <a class="nav-pill" href="#servicos">Serviços</a>
-        <a class="nav-pill" href="#projetos">Projetos</a>
-        <a class="nav-pill" href="#processo">Processo</a>
-        <a class="nav-pill" href="#sobre">Sobre</a>
-        <a class="nav-pill" href="#testemunhos">Testemunhos</a>
-        <a class="nav-pill nav-pill--cta" href="#contacto">Pedir proposta</a>
-      </nav>
-    </div>
-  </header>
-
   <main id="conteudo">
     <!-- HERO -->
     <section class="hero hero-video" aria-label="Hero">
@@ -68,33 +38,65 @@
 
       <div class="hero-overlay" aria-hidden="true"></div>
 
+      <!-- HEADER OVER VIDEO (no bar) -->
+      <header class="site-header site-header--overlay" id="topo" role="banner">
+        <div class="container header-inner">
+          <a class="brand" href="#topo" aria-label="Sueste - Creative Agency, voltar ao topo">
+            <img
+              src="images/logo-white-hor.png"
+              alt="Sueste - Creative Agency"
+              width="360"
+              height="78"
+              loading="eager"
+              decoding="async"
+              class="brand-logo brand-logo--xl"
+            />
+          </a>
+
+          <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="site-nav">
+            <span class="nav-toggle-lines" aria-hidden="true"></span>
+          </button>
+
+          <nav class="site-nav site-nav--pills" id="site-nav" aria-label="Navegação principal">
+            <a class="nav-pill" href="#servicos">Serviços</a>
+            <a class="nav-pill" href="#projetos">Projetos</a>
+            <a class="nav-pill" href="#processo">Processo</a>
+            <a class="nav-pill" href="#sobre">Sobre</a>
+            <a class="nav-pill" href="#testemunhos">Testemunhos</a>
+            <a class="nav-pill nav-pill--cta" href="#contacto">Pedir proposta</a>
+          </nav>
+        </div>
+      </header>
+
       <div class="container hero-content">
         <div class="hero-left">
           <!-- TYPED HEADLINE -->
           <h1 class="hero-typed" aria-label="O que move nem sempre se vê. Mas o impacto é inevitável.">
             <span class="typed-row">
-              <span id="typed-prefix" class="typed-prefix" data-text="O que move nem sempre se vê. Mas o impacto é "></span>
+              <span id="typed-prefix" class="typed-prefix" data-text="O que move nem sempre se vê. Mas o "></span>
+              <span id="typed-slow" class="typed-slow" data-text="impacto é "></span>
               <span id="typed-highlight" class="typed-highlight" data-text="inevitável."></span>
               <span class="typed-caret" aria-hidden="true"></span>
             </span>
           </h1>
 
-          <p class="hero-sub">O movimento vem primeiro. O impacto é inevitável.</p>
-        </div>
+          <!-- UNDERLINE AREA (moved up, no background card) -->
+          <div class="hero-under">
+            <div class="hero-pills" role="navigation" aria-label="Atalhos para serviços">
+              <a class="pill-link" href="#design-grafico">Design Gráfico</a>
+              <a class="pill-link" href="#social-media">Social Media</a>
+              <a class="pill-link" href="#desenvolvimento-web">Desenvolvimento Web</a>
+              <a class="pill-link" href="#drone-media">Drone Media</a>
+            </div>
 
-        <!-- bottom pills: no extra card behind -->
-        <div class="hero-bottom">
-          <div class="hero-pills" role="navigation" aria-label="Atalhos para serviços">
-            <a class="pill-link" href="#design-grafico">Design Gráfico</a>
-            <a class="pill-link" href="#social-media">Social Media</a>
-            <a class="pill-link" href="#desenvolvimento-web">Desenvolvimento Web</a>
-            <a class="pill-link" href="#drone-media">Drone Media</a>
+            <!-- SCROLL INDICATOR (replaces Explore button) -->
+            <a class="scroll-indicator" href="#servicos" aria-label="Scroll para baixo">
+              <span class="scroll-track" aria-hidden="true">
+                <span class="scroll-ball" aria-hidden="true"></span>
+              </span>
+              <span class="scroll-label">Explore</span>
+            </a>
           </div>
-
-          <a class="hero-scroll" href="#servicos" aria-label="Scroll para a secção de serviços">
-            <span class="hero-scroll-dot" aria-hidden="true">↓</span>
-            <span>Explorar</span>
-          </a>
         </div>
       </div>
     </section>
@@ -148,7 +150,7 @@
         <div class="section-head">
           <p class="kicker">PORTFÓLIO</p>
           <h2>Alguns projetos que criaram impacto</h2>
-          <p class="section-sub">Exemplos curtos, sem ruído. Depois ligamos a cases reais.</p>
+          <p class="section-sub">Exemplos curtos, sem ruído.</p>
         </div>
 
         <div class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;">
@@ -329,9 +331,7 @@
           <small style="color:var(--ink-faint);">
             © <span id="year"></span> Sueste - Creative Agency. Todos os direitos reservados.
           </small>
-          <small style="color:var(--ink-faint);">
-            info@sueste-creative.com
-          </small>
+          <small style="color:var(--ink-faint);">info@sueste-creative.com</small>
         </div>
       </div>
     </div>
@@ -370,12 +370,15 @@
       if (y) y.textContent = String(new Date().getFullYear());
 
       const prefixEl = document.getElementById("typed-prefix");
+      const slowEl = document.getElementById("typed-slow");
       const hiEl = document.getElementById("typed-highlight");
-      if (!prefixEl || !hiEl) return;
+
+      if (!prefixEl || !slowEl || !hiEl) return;
 
       const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       if (reduceMotion) {
         prefixEl.textContent = prefixEl.getAttribute("data-text") || "";
+        slowEl.textContent = slowEl.getAttribute("data-text") || "";
         hiEl.textContent = hiEl.getAttribute("data-text") || "";
         const caret = document.querySelector(".typed-caret");
         if (caret) caret.style.display = "none";
@@ -383,45 +386,46 @@
       }
 
       const prefix = prefixEl.getAttribute("data-text") || "";
+      const slow = slowEl.getAttribute("data-text") || "";
       const hi = hiEl.getAttribute("data-text") || "";
 
       prefixEl.textContent = "";
+      slowEl.textContent = "";
       hiEl.textContent = "";
 
       let i = 0;
       let j = 0;
+      let k = 0;
 
-      const total = prefix.length + hi.length;
-      const slowZone = Math.max(0, total - 12);
-      const tailZone = Math.max(0, total - 3);
+      const total = prefix.length + slow.length + hi.length;
+      const slowStart = prefix.length;
+      const slowEnd = prefix.length + slow.length + hi.length;
 
-      function delayFor(k) {
-        if (k < slowZone) return 14;
-        if (k < tailZone) {
-          const t = (k - slowZone) / Math.max(1, tailZone - slowZone);
-          return 14 + t * 70;
-        }
-        const t2 = (k - tailZone) / Math.max(1, total - tailZone);
-        return 84 + t2 * 120;
+      function delayFor(pos) {
+        if (pos < slowStart) return 16;
+        const t = (pos - slowStart) / Math.max(1, slowEnd - slowStart);
+        return 70 + t * 160;
       }
 
       function tick() {
-        const k = i + j;
-
         if (i < prefix.length) {
           i += 1;
           prefixEl.textContent = prefix.slice(0, i);
-        } else if (j < hi.length) {
+        } else if (j < slow.length) {
           j += 1;
-          hiEl.textContent = hi.slice(0, j);
+          slowEl.textContent = slow.slice(0, j);
+        } else if (k < hi.length) {
+          k += 1;
+          hiEl.textContent = hi.slice(0, k);
         } else {
           return;
         }
 
-        setTimeout(tick, delayFor(k));
+        const pos = i + j + k;
+        setTimeout(tick, delayFor(pos));
       }
 
-      setTimeout(tick, 200);
+      setTimeout(tick, 240);
     })();
   </script>
 
