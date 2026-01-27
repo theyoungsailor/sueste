@@ -10,7 +10,6 @@
   --accent-2:#a7bfe8;
   --grad:linear-gradient(90deg,var(--accent),var(--accent-2));
 
-  --glass:rgba(255,255,255,0.06);
   --border:rgba(255,255,255,0.14);
 
   --shadow:0 18px 44px rgba(0,0,0,0.28);
@@ -314,26 +313,31 @@ main,
   .site-nav.is-open{display:flex}
 }
 
-/* HERO LAYOUT: stable title area + fixed pills position */
+/* HERO LAYOUT: lower on screen + pills static */
 .hero-content{
   position:relative;
   z-index:2;
   min-height:inherit;
-  display:flex;
-  align-items:flex-start;
-  justify-content:center;
-  padding:clamp(120px,14vh,170px) 0 clamp(48px,8vh,86px);
+  display:grid;
+  grid-template-rows:1.35fr auto 0.65fr;
+  padding:clamp(120px,14vh,170px) 0 clamp(44px,8vh,86px);
 }
 
 .hero-left{
+  grid-row:2;
   width:100%;
   max-width:min(1080px, 92vw);
   display:grid;
   grid-template-rows:auto auto;
-  row-gap:clamp(18px,2.6vw,30px);
+  row-gap:clamp(16px,2.4vw,26px);
 }
 
-/* Reserve space for 3 lines so nothing jumps during typing */
+.hero-title-box{
+  min-height:clamp(240px, 28vh, 360px);
+  display:flex;
+  align-items:flex-end;
+}
+
 .hero-typed{
   margin:0;
   font-weight:950;
@@ -341,10 +345,8 @@ main,
   line-height:1.02;
   font-size:clamp(44px,6.6vw,96px);
   text-wrap:balance;
-  min-height:calc(3 * 1.02em);
 }
 
-/* Keep typed spans inline */
 .typed-row{display:inline}
 .typed-prefix,
 .typed-slow{
@@ -373,15 +375,14 @@ main,
   50%{opacity:0}
 }
 
-/* Under area stays fixed, independent from typing height changes */
-.hero-under{
+.hero-actions-box{
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:18px;
 }
 
-/* Pills (no card behind) */
+/* PILLS */
 .hero-pills{
   display:flex;
   flex-wrap:wrap;
@@ -423,7 +424,7 @@ main,
   outline-offset:3px;
 }
 
-/* Scroll indicator (CSS-only animation) */
+/* SCROLL INDICATOR: smoother + 10% padding top/bottom */
 .scroll-indicator{
   display:flex;
   flex-direction:column;
@@ -436,8 +437,12 @@ main,
 }
 
 .scroll-track{
+  --track-h:72px;
+  --ball:10px;
+  --pad:calc(var(--track-h) * 0.10);
+  --travel:calc(var(--track-h) - (var(--pad) * 2) - var(--ball));
   width:34px;
-  height:66px;
+  height:var(--track-h);
   border-radius:999px;
   background:rgba(255,255,255,0.06);
   border:1px solid rgba(255,255,255,0.14);
@@ -448,32 +453,25 @@ main,
   overflow:hidden;
 }
 
-/* Add subtle inner fade so ball "disappears" at the top */
-.scroll-track::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(180deg, rgba(7,10,18,0.45) 0%, rgba(7,10,18,0.00) 48%, rgba(7,10,18,0.00) 100%);
-  pointer-events:none;
-}
-
 .scroll-ball{
   position:absolute;
   left:50%;
-  top:10px;
-  width:10px;
-  height:10px;
+  top:var(--pad);
+  width:var(--ball);
+  height:var(--ball);
   border-radius:999px;
   background:var(--grad);
-  transform:translateX(-50%);
-  animation:scrollBall 1.45s ease-in-out infinite;
+  transform:translateX(-50%) translateY(0);
+  opacity:0;
+  animation:scrollBall 1.65s cubic-bezier(.22,.61,.36,1) infinite;
   will-change:transform, opacity;
 }
 
 @keyframes scrollBall{
-  0%{transform:translateX(-50%) translateY(46px); opacity:1}
-  55%{transform:translateX(-50%) translateY(10px); opacity:0}
-  100%{transform:translateX(-50%) translateY(46px); opacity:1}
+  0%{transform:translateX(-50%) translateY(0); opacity:0}
+  18%{opacity:0.25}
+  78%{transform:translateX(-50%) translateY(var(--travel)); opacity:1}
+  100%{transform:translateX(-50%) translateY(var(--travel)); opacity:1}
 }
 
 .scroll-label{
@@ -487,9 +485,12 @@ main,
 /* RESPONSIVE */
 @media (max-width: 900px){
   .hero-content{
-    padding:clamp(110px,13vh,160px) 0 clamp(48px,8vh,80px);
+    grid-template-rows:1.15fr auto 0.85fr;
   }
-  .hero-under{
+  .hero-title-box{
+    min-height:clamp(200px, 24vh, 320px);
+  }
+  .hero-actions-box{
     flex-direction:column;
     align-items:flex-start;
     gap:14px;
@@ -510,7 +511,10 @@ main,
 
   .hero-typed{
     font-size:clamp(40px,10vw,60px);
-    min-height:calc(3 * 1.02em);
+  }
+
+  .hero-title-box{
+    min-height:clamp(180px, 22vh, 260px);
   }
 
   .scroll-indicator{
