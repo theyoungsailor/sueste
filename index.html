@@ -561,6 +561,49 @@
       if (y) y.textContent = String(new Date().getFullYear());
     })();
   </script>
+<script>
+  (function () {
+    const el = document.getElementById("hero-typed-text");
+    if (!el) return;
+
+    const full = el.getAttribute("data-text") || "";
+    if (!full) return;
+
+    const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) {
+      el.textContent = full;
+      const caret = document.querySelector(".typed-caret");
+      if (caret) caret.style.display = "none";
+      return;
+    }
+
+    let i = 0;
+    const n = full.length;
+
+    const slowZone = Math.max(0, n - 12);
+    const tailZone = Math.max(0, n - 3);
+
+    function delayFor(idx) {
+      if (idx < slowZone) return 14;
+      if (idx < tailZone) {
+        const t = (idx - slowZone) / Math.max(1, tailZone - slowZone);
+        return 14 + t * 70;
+      }
+      const t2 = (idx - tailZone) / Math.max(1, n - tailZone);
+      return 84 + t2 * 120;
+    }
+
+    function tick() {
+      i += 1;
+      el.textContent = full.slice(0, i);
+      if (i >= n) return;
+      setTimeout(tick, delayFor(i));
+    }
+
+    el.textContent = "";
+    setTimeout(tick, 200);
+  })();
+</script>
 
   <!-- WAVES -->
   <script src="waves.js"></script>
