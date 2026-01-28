@@ -556,6 +556,8 @@ main,
 
   .brand-logo--xl{
     height:106px;
+    width:auto;
+    max-height:none;
   }
 
   .hero-typed{
