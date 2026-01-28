@@ -694,6 +694,117 @@
       tryPlay();
     })();
   </script>
+  <script>
+  (function () {
+    const OPEN_ATTR = "data-modal-open";
+    const CLOSE_ATTR = "data-modal-close";
+
+    let activeModal = null;
+    let lastFocus = null;
+
+    const prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const closeDelay = prefersReduced ? 0 : 180;
+
+    function getFocusable(root) {
+      return Array.from(
+        root.querySelectorAll(
+          'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+        )
+      ).filter((el) => !el.hasAttribute("disabled") && !el.getAttribute("aria-hidden"));
+    }
+
+    function lockBody(lock) {
+      document.body.classList.toggle("is-modal-open", lock);
+    }
+
+    function openModal(id, trigger) {
+      const modal = document.getElementById(id);
+      if (!modal) return;
+
+      const dialog = modal.querySelector(".cs-dialog");
+      if (!dialog) return;
+
+      lastFocus = trigger || document.activeElement;
+      activeModal = modal;
+
+      modal.hidden = false;
+      modal.classList.add("is-open");
+      lockBody(true);
+
+      requestAnimationFrame(() => {
+        dialog.focus({ preventScroll: true });
+      });
+    }
+
+    function closeModal(modal) {
+      if (!modal) return;
+
+      modal.classList.remove("is-open");
+      lockBody(false);
+
+      const toRestore = lastFocus;
+      activeModal = null;
+
+      window.setTimeout(() => {
+        modal.hidden = true;
+        if (toRestore && typeof toRestore.focus === "function") {
+          toRestore.focus({ preventScroll: true });
+        }
+      }, closeDelay);
+    }
+
+    function onClick(e) {
+      const openBtn = e.target.closest("[" + OPEN_ATTR + "]");
+      if (openBtn) {
+        const id = openBtn.getAttribute(OPEN_ATTR);
+        if (id) openModal(id, openBtn);
+        return;
+      }
+
+      if (!activeModal) return;
+
+      const closeHit = e.target.closest("[" + CLOSE_ATTR + "]");
+      if (closeHit) {
+        e.preventDefault();
+        closeModal(activeModal);
+      }
+    }
+
+    function onKeyDown(e) {
+      if (!activeModal) return;
+
+      if (e.key === "Escape") {
+        e.preventDefault();
+        closeModal(activeModal);
+        return;
+      }
+
+      if (e.key !== "Tab") return;
+
+      const dialog = activeModal.querySelector(".cs-dialog");
+      if (!dialog) return;
+
+      const focusables = getFocusable(dialog);
+      if (!focusables.length) return;
+
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      const isShift = e.shiftKey;
+
+      if (isShift && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!isShift && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+
+    document.addEventListener("click", onClick);
+    document.addEventListener("keydown", onKeyDown);
+  })();
+</script>
+
 
   <script src="./waves.js?v=20260128-1"></script>
 </body>
