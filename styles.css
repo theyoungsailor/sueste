@@ -247,7 +247,7 @@ main,
 }
 
 .brand-logo--xl{
-  height:clamp(52px,5.6vw,84px);
+  height:clamp(60px,6.6vw,104px);
   width:auto;
 }
 
