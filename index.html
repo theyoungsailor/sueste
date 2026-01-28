@@ -15,7 +15,7 @@
   <link rel="preload" as="image" href="images/logo-white-hor.png" />
 
   <!-- Cache bust: bump the v= value when deploying to GitHub Pages -->
-  <link rel="stylesheet" href="./styles.css?v=20260127-2" />
+  <link rel="stylesheet" href="./styles.css?v=20260128-1" />
 </head>
 
 <body>
@@ -63,8 +63,7 @@
         </div>
       </header>
 
-      <!-- Slightly closer to left edge: reduce container side padding just for hero -->
-      <div class="container hero-content" style="width:min(var(--container), calc(100% - 24px));">
+      <div class="container hero-content">
         <div class="hero-left">
           <div class="hero-title-box">
             <h1 class="hero-typed" aria-label="O que move nem sempre se vê. Mas o impacto é inevitável.">
@@ -88,7 +87,7 @@
         </div>
       </div>
 
-      <!-- Scroll indicator placed as a direct child of hero so it aligns to the hero viewport -->
+      <!-- Scroll indicator: bottom centered on the hero viewport -->
       <a class="scroll-indicator" href="#servicos" aria-label="Scroll para baixo">
         <span class="scroll-track" aria-hidden="true">
           <span class="scroll-ball" aria-hidden="true"></span>
@@ -102,7 +101,7 @@
       <div class="container">
         <div class="section-head">
           <p class="kicker">O QUE FAZEMOS</p>
-          <h2>Serviços pensados para elevar a presença da marca</h2>
+          <h2>Serviços pensados para elevar a presença da <span class="title-grad">marca</span></h2>
           <p class="section-sub">
             Do conceito à execução, criamos soluções visuais e digitais com clareza, consistência e performance.
           </p>
@@ -145,7 +144,7 @@
       <div class="container">
         <div class="section-head">
           <p class="kicker">PORTFÓLIO</p>
-          <h2>Alguns projetos que criaram impacto</h2>
+          <h2>Alguns projetos que criaram <span class="title-grad">impacto</span></h2>
           <p class="section-sub">Exemplos curtos, sem ruído.</p>
         </div>
 
@@ -170,7 +169,7 @@
       <div class="container">
         <div class="section-head">
           <p class="kicker">PROCESSO</p>
-          <h2>Direção clara, execução rápida</h2>
+          <h2>Direção clara, execução <span class="title-grad">rápida</span></h2>
           <p class="section-sub">Poucas etapas, máximo alinhamento.</p>
         </div>
 
@@ -198,7 +197,7 @@
           <div class="glass" style="padding:22px;">
             <p class="kicker">SOBRE</p>
             <h2 style="margin:0;font-weight:950;letter-spacing:-0.02em;line-height:1.08;font-size:clamp(26px,3vw,40px);">
-              Uma agência pequena, com obsessão por detalhe
+              Uma agência pequena, com obsessão por <span class="title-grad">detalhe</span>
             </h2>
             <p style="margin:12px 0 0;color:var(--ink-soft);line-height:1.7;">
               A Sueste nasce do Algarve, inspirada pelo vento que muda direções e levanta ondas.
@@ -222,7 +221,7 @@
       <div class="container">
         <div class="section-head">
           <p class="kicker">TESTEMUNHOS</p>
-          <h2>Feedback que fala por si</h2>
+          <h2>Feedback que fala por <span class="title-grad">si</span></h2>
           <p class="section-sub">Curto, direto e credível.</p>
         </div>
 
@@ -258,7 +257,7 @@
           <div class="glass" style="padding:22px;">
             <p class="kicker">CONTACTO</p>
             <h2 style="margin:0;font-weight:950;letter-spacing:-0.02em;line-height:1.08;font-size:clamp(26px,3vw,40px);">
-              Vamos falar sobre o teu projeto
+              Vamos falar sobre o teu <span class="title-grad">projeto</span>
             </h2>
             <p style="margin:12px 0 0;color:var(--ink-soft);line-height:1.7;">
               Envia uma mensagem com o essencial. Respondemos com próximos passos.
@@ -422,6 +421,7 @@
     })();
   </script>
 
-  <script src="./waves.js"></script>
+  <!-- Cache bust for GitHub Pages -->
+  <script src="./waves.js?v=20260128-1"></script>
 </body>
 </html>
