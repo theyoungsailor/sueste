@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#070A12" />
 
   <title>Sueste - Creative Agency | Design, Web, Social Media e Drone</title>
-  <meta name="description" content="Sueste - Creative Agency. Movimento com intenção para criar impacto. Design Gráfico, Social Media, Desenvolvimento Web e Drone Media no Algarve, Portugal." />
+  <meta name="description" content="Sueste - Creative Agency. Movimento com intenção para criar impacto. Design Gráfico, Social Media, Desenvolvimento Web e Drone no Algarve, Portugal." />
   <meta name="robots" content="index,follow" />
 
   <link rel="icon" href="images/fav-icon.png" />
@@ -106,9 +106,9 @@
       <div class="container">
         <div class="section-head">
           <p class="kicker">O QUE FAZEMOS</p>
-          <h2>Serviços para elevar a sua <span class="title-grad">marca</span></h2>
+          <h2>Serviços pensados para elevar a presença da <span class="title-grad">marca</span></h2>
           <p class="section-sub">
-            Do conceito à execução, criamos soluções visuais e digitais com clareza, consistência e focados em resultados.
+            Do conceito à execução, criamos soluções visuais e digitais com clareza, consistência e performance.
           </p>
         </div>
 
@@ -202,7 +202,7 @@
       </div>
     </section>
 
-    <section class="section" id="projetos" aria-label="Projetos">
+    <section class="section section-projects" id="projetos" aria-label="Projetos">
       <div class="container">
         <div class="section-head">
           <p class="kicker">PORTFÓLIO</p>
@@ -210,18 +210,221 @@
           <p class="section-sub">Exemplos curtos, sem ruído.</p>
         </div>
 
-        <div class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;">
-          <article class="glass" style="padding:16px;">
-            <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.10);background:rgba(255,255,255,0.03);aspect-ratio:16/9;"></div>
-            <h3 style="margin:14px 0 6px;font-weight:900;">Projeto 01</h3>
-            <p style="margin:0;color:var(--ink-soft);line-height:1.6;">Identidade e design.</p>
+        <div class="grid projects-grid">
+          <article class="glass project-card project-card--featured" aria-label="Desportos Náuticos de Alvor case study">
+            <div class="project-card__top">
+              <div class="project-brand">
+                <img
+                  class="project-logo"
+                  src="images/logo-dna-white.png"
+                  alt="Logótipo Desportos Náuticos de Alvor"
+                  width="140"
+                  height="44"
+                  loading="eager"
+                  decoding="async"
+                />
+                <div class="project-brand__text">
+                  <h3 class="project-title">Desportos Náuticos de Alvor</h3>
+                  <p class="project-desc">
+                    Reposicionamento premium com foco em performance, consistência visual e conteúdos orientados a resultados.
+                  </p>
+                  <ul class="project-tags" aria-label="Áreas do projeto">
+                    <li><span class="pill-link project-tag">Website</span></li>
+                    <li><span class="pill-link project-tag">Social Media</span></li>
+                    <li><span class="pill-link project-tag">Fardas</span></li>
+                    <li><span class="pill-link project-tag">Insights</span></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="project-actions">
+                <button
+                  class="pill-link project-cta"
+                  type="button"
+                  data-modal-open="cs-dna"
+                  aria-haspopup="dialog"
+                  aria-controls="cs-dna"
+                >
+                  Ver case study
+                </button>
+              </div>
+            </div>
           </article>
 
-          <article class="glass" style="padding:16px;">
-            <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.10);background:rgba(255,255,255,0.03);aspect-ratio:16/9;"></div>
-            <h3 style="margin:14px 0 6px;font-weight:900;">Projeto 02</h3>
-            <p style="margin:0;color:var(--ink-soft);line-height:1.6;">Website e performance.</p>
+          <article class="glass project-card" aria-label="Projeto 01">
+            <div class="project-thumb" aria-hidden="true"></div>
+            <h3 class="project-title">Projeto 01</h3>
+            <p class="project-desc">Identidade e design.</p>
           </article>
+
+          <article class="glass project-card" aria-label="Projeto 02">
+            <div class="project-thumb" aria-hidden="true"></div>
+            <h3 class="project-title">Projeto 02</h3>
+            <p class="project-desc">Website e performance.</p>
+          </article>
+        </div>
+
+        <div class="cs-modal" id="cs-dna" data-modal hidden>
+          <div class="cs-backdrop" data-modal-close aria-hidden="true"></div>
+
+          <div
+            class="cs-dialog glass"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="cs-dna-title"
+            aria-describedby="cs-dna-desc"
+            tabindex="-1"
+          >
+            <header class="cs-header">
+              <div class="cs-header__left">
+                <img
+                  class="cs-logo"
+                  src="images/logo-dna-white.png"
+                  alt="Logótipo Desportos Náuticos de Alvor"
+                  width="150"
+                  height="48"
+                  loading="eager"
+                  decoding="async"
+                />
+
+                <div class="cs-header__text">
+                  <h3 class="cs-title" id="cs-dna-title">Desportos Náuticos de Alvor</h3>
+                  <p class="cs-lead" id="cs-dna-desc">
+                    Case study completo com visão geral, solução por áreas e placeholders para resultados e métricas.
+                  </p>
+
+                  <ul class="cs-tags" aria-label="Tags do case study">
+                    <li><span class="pill-link cs-tag">Website</span></li>
+                    <li><span class="pill-link cs-tag">Social Media</span></li>
+                    <li><span class="pill-link cs-tag">Fardas</span></li>
+                    <li><span class="pill-link cs-tag">Insights</span></li>
+                  </ul>
+                </div>
+              </div>
+
+              <button class="pill-link cs-close" type="button" data-modal-close aria-label="Fechar case study">
+                Fechar
+              </button>
+            </header>
+
+            <div class="cs-body">
+              <section class="cs-section">
+                <h4 class="cs-h">Visão geral</h4>
+                <p class="cs-p">
+                  Projeto orientado a reforçar posicionamento premium e a melhorar clareza de oferta, navegação e conversão.
+                </p>
+              </section>
+
+              <section class="cs-section">
+                <h4 class="cs-h">Desafio</h4>
+                <p class="cs-p">
+                  Unificar comunicação, elevar a perceção de valor e criar uma experiência digital consistente em todos os pontos de contacto.
+                </p>
+              </section>
+
+              <section class="cs-section">
+                <h4 class="cs-h">Objetivos</h4>
+                <ul class="cs-list">
+                  <li>Melhorar a experiência do utilizador e o percurso até à reserva.</li>
+                  <li>Reforçar consistência visual e identidade.</li>
+                  <li>Garantir performance e base sólida para crescimento.</li>
+                </ul>
+              </section>
+
+              <section class="cs-section">
+                <h4 class="cs-h">Solução</h4>
+
+                <div class="cs-solution">
+                  <div class="cs-solution__block">
+                    <h5 class="cs-sh">Desenvolvimento web</h5>
+                    <p class="cs-p">
+                      One page premium com foco em performance, estrutura, SEO e componentes reutilizáveis em glass.
+                    </p>
+
+                    <div class="cs-video">
+                      <video class="cs-video__el" controls preload="metadata" playsinline>
+                        <source src="images/dna-web-dev.mp4" type="video/mp4" />
+                        O seu browser não suporta vídeo HTML5.
+                      </video>
+                    </div>
+                  </div>
+
+                  <div class="cs-solution__grid" aria-label="Apoios visuais do projeto">
+                    <figure class="glass cs-media-card">
+                      <img
+                        src="images/default.png"
+                        alt="Mockup Social Media"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <figcaption class="cs-cap">Social Media</figcaption>
+                    </figure>
+
+                    <figure class="glass cs-media-card">
+                      <img
+                        src="images/default.png"
+                        alt="Mockup Fardas"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <figcaption class="cs-cap">Fardas</figcaption>
+                    </figure>
+
+                    <figure class="glass cs-media-card">
+                      <img
+                        src="images/default.png"
+                        alt="Mockup Resultados e Insights"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <figcaption class="cs-cap">Resultados</figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </section>
+
+              <section class="cs-section">
+                <h4 class="cs-h">Entregáveis</h4>
+                <ul class="cs-list">
+                  <li>Website e componentes UI (glass system).</li>
+                  <li>Direção visual e templates de conteúdo.</li>
+                  <li>Mockups e assets de branding para fardas.</li>
+                  <li>Estrutura de reporting e insights (placeholders).</li>
+                </ul>
+              </section>
+
+              <section class="cs-section">
+                <h4 class="cs-h">Resultados e insights</h4>
+
+                <div class="cs-stats" role="list" aria-label="Métricas do projeto">
+                  <div class="glass cs-stat" role="listitem">
+                    <p class="cs-stat__num">+00%</p>
+                    <p class="cs-stat__label">Conversão, período (placeholder)</p>
+                  </div>
+
+                  <div class="glass cs-stat" role="listitem">
+                    <p class="cs-stat__num">-00%</p>
+                    <p class="cs-stat__label">Tempo de decisão, período (placeholder)</p>
+                  </div>
+
+                  <div class="glass cs-stat" role="listitem">
+                    <p class="cs-stat__num">+00%</p>
+                    <p class="cs-stat__label">Engagement, período (placeholder)</p>
+                  </div>
+
+                  <div class="glass cs-stat" role="listitem">
+                    <p class="cs-stat__num">00x</p>
+                    <p class="cs-stat__label">Velocidade e performance (placeholder)</p>
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            <footer class="cs-footer">
+              <a class="pill-link cs-footer__cta" href="#contacto">Falar com a Sueste</a>
+              <button class="pill-link cs-footer__close" type="button" data-modal-close>Fechar</button>
+            </footer>
+          </div>
         </div>
       </div>
     </section>
