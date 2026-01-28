@@ -474,7 +474,7 @@ main,
   position:absolute;
   left:0;
   right:0;
-  bottom:clamp(22px, 4vh, 46px);
+  bottom: calc(env(safe-area-inset-bottom, 0px) + clamp(34px, 5.2vh, 62px));
   width:max-content;
   margin:0 auto;
   z-index:3;
