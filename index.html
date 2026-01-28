@@ -14,7 +14,7 @@
 
   <link rel="preload" as="image" href="images/logo-white-hor.png" />
 
-  <link rel="stylesheet" href="./styles.css?v=20260128-2" />
+  <link rel="stylesheet" href="./styles.css?v=20260128-1" />
 </head>
 
 <body>
@@ -25,6 +25,7 @@
     <section class="hero hero-video" aria-label="Hero">
       <div class="hero-video-wrap" aria-hidden="true">
         <video
+          id="heroVideo"
           class="hero-video-el"
           autoplay
           muted
@@ -101,7 +102,6 @@
       </a>
     </section>
 
-    <!-- SERVICES -->
     <section class="section" id="servicos" aria-label="Serviços">
       <div class="container">
         <div class="section-head">
@@ -144,7 +144,6 @@
       </div>
     </section>
 
-    <!-- PROJECTS -->
     <section class="section" id="projetos" aria-label="Projetos">
       <div class="container">
         <div class="section-head">
@@ -169,7 +168,6 @@
       </div>
     </section>
 
-    <!-- PROCESS -->
     <section class="section" id="processo" aria-label="Processo">
       <div class="container">
         <div class="section-head">
@@ -195,7 +193,6 @@
       </div>
     </section>
 
-    <!-- ABOUT -->
     <section class="section" id="sobre" aria-label="Sobre">
       <div class="container">
         <div class="grid" style="grid-template-columns:1fr 1fr;gap:18px;align-items:stretch;">
@@ -212,135 +209,91 @@
           <div class="glass" style="padding:22px;">
             <h3 style="margin:0 0 10px;font-weight:900;">O que podes esperar</h3>
             <ul style="margin:0;color:var(--ink-soft);line-height:1.7;">
-              <li>Clareza e consistência</li>
-              <li>Estética premium</li>
-              <li>Performance e rapidez</li>
+              <li>Direção criativa e consistência visual</li>
+              <li>Entrega rápida e comunicação simples</li>
+              <li>Performance e atenção ao detalhe</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- TESTIMONIALS -->
     <section class="section" id="testemunhos" aria-label="Testemunhos">
       <div class="container">
         <div class="section-head">
           <p class="kicker">TESTEMUNHOS</p>
-          <h2>Feedback que fala por <span class="title-grad">si</span></h2>
-          <p class="section-sub">Curto, direto e credível.</p>
+          <h2>Feedback que confirma <span class="title-grad">confiança</span></h2>
+          <p class="section-sub">Texto placeholder, curto e direto.</p>
         </div>
 
-        <div class="grid cards-3">
-          <figure class="glass" style="padding:18px;margin:0;">
-            <blockquote style="margin:0;color:var(--ink-soft);line-height:1.7;">
-              “Texto de testemunho curto e direto.”
-            </blockquote>
-            <figcaption style="margin-top:12px;font-weight:900;">Cliente 01</figcaption>
-          </figure>
-
-          <figure class="glass" style="padding:18px;margin:0;">
-            <blockquote style="margin:0;color:var(--ink-soft);line-height:1.7;">
-              “Boa comunicação, rápido, e com atenção a detalhe.”
-            </blockquote>
-            <figcaption style="margin-top:12px;font-weight:900;">Cliente 02</figcaption>
-          </figure>
-
-          <figure class="glass" style="padding:18px;margin:0;">
-            <blockquote style="margin:0;color:var(--ink-soft);line-height:1.7;">
-              “O site ficou leve, elegante e com direção.”
-            </blockquote>
-            <figcaption style="margin-top:12px;font-weight:900;">Cliente 03</figcaption>
-          </figure>
+        <div class="grid" style="grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;">
+          <div class="glass" style="padding:18px;">
+            <p style="margin:0;color:var(--ink-soft);line-height:1.7;">“Rápido, consistente, impecável.”</p>
+            <p style="margin:12px 0 0;font-weight:900;">Cliente 01</p>
+          </div>
+          <div class="glass" style="padding:18px;">
+            <p style="margin:0;color:var(--ink-soft);line-height:1.7;">“Visual premium e execução limpa.”</p>
+            <p style="margin:12px 0 0;font-weight:900;">Cliente 02</p>
+          </div>
+          <div class="glass" style="padding:18px;">
+            <p style="margin:0;color:var(--ink-soft);line-height:1.7;">“Bom gosto e atenção ao detalhe.”</p>
+            <p style="margin:12px 0 0;font-weight:900;">Cliente 03</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section class="section" id="contacto" aria-label="Contacto">
       <div class="container">
-        <div class="grid" style="grid-template-columns:1fr 1fr;gap:18px;align-items:stretch;">
+        <div class="grid" style="grid-template-columns:1.1fr 0.9fr;gap:18px;align-items:stretch;">
           <div class="glass" style="padding:22px;">
             <p class="kicker">CONTACTO</p>
             <h2 style="margin:0;font-weight:950;letter-spacing:-0.02em;line-height:1.08;font-size:clamp(26px,3vw,40px);">
-              Vamos falar sobre o teu <span class="title-grad">projeto</span>
+              Vamos criar algo que provoque <span class="title-grad">impacto</span>
             </h2>
             <p style="margin:12px 0 0;color:var(--ink-soft);line-height:1.7;">
-              Envia uma mensagem com o essencial. Respondemos com próximos passos.
+              Conta o que precisas e respondemos com uma proposta clara.
             </p>
 
-            <div style="margin-top:14px;display:grid;gap:10px;color:var(--ink-soft);line-height:1.6;">
-              <div><strong style="color:var(--ink);">Sueste - Creative Agency</strong></div>
-              <div><strong style="color:var(--ink);">Email:</strong> info@sueste-creative.com</div>
-              <div><strong style="color:var(--ink);">Telefone:</strong> +351 965 494 727</div>
-              <div><strong style="color:var(--ink);">Local:</strong> Algarve, Portugal</div>
-            </div>
+            <form style="margin-top:16px;display:grid;gap:12px;">
+              <input type="text" name="nome" placeholder="Nome" autocomplete="name" />
+              <input type="email" name="email" placeholder="Email" autocomplete="email" />
+              <textarea name="mensagem" placeholder="Mensagem"></textarea>
+              <button class="btn primary" type="button">Enviar</button>
+            </form>
           </div>
 
-          <div class="glass" style="padding:22px;">
-            <form class="contact-form" action="#" method="POST" aria-label="Formulário de contacto">
-              <div style="display:grid;gap:12px;">
-                <label style="display:grid;gap:8px;">
-                  <span style="font-weight:800;color:var(--ink-soft);font-size:13px;">Nome</span>
-                  <input name="name" type="text" autocomplete="name" required placeholder="O teu nome" />
-                </label>
+          <div class="glass" style="padding:22px;display:flex;flex-direction:column;justify-content:space-between;">
+            <div>
+              <h3 style="margin:0 0 10px;font-weight:900;">Detalhes</h3>
+              <p style="margin:0;color:var(--ink-soft);line-height:1.7;">
+                Algarve, Portugal<br />
+                <span style="opacity:0.8;">hello@sueste.pt</span>
+              </p>
+            </div>
 
-                <label style="display:grid;gap:8px;">
-                  <span style="font-weight:800;color:var(--ink-soft);font-size:13px;">Email</span>
-                  <input name="email" type="email" autocomplete="email" required placeholder="teuemail@exemplo.com" />
-                </label>
-
-                <label style="display:grid;gap:8px;">
-                  <span style="font-weight:800;color:var(--ink-soft);font-size:13px;">Mensagem</span>
-                  <textarea name="message" required rows="5" placeholder="Conta-nos o objetivo e o prazo."></textarea>
-                </label>
-
-                <button class="btn primary" type="submit">Enviar</button>
-              </div>
-            </form>
+            <p style="margin:22px 0 0;color:rgba(255,255,255,0.55);font-size:13px;line-height:1.6;">
+              © <span id="year">2026</span> Sueste - Creative Agency
+            </p>
           </div>
         </div>
       </div>
     </section>
-  </main>
 
-  <footer class="site-footer section" role="contentinfo" aria-label="Rodapé">
-    <div class="container">
-      <div class="glass" style="padding:18px;">
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;">
-          <div style="display:flex;align-items:center;gap:12px;">
-            <img
-              src="images/logo-white-hor.png"
-              alt="Sueste - Creative Agency"
-              width="160"
-              height="36"
-              loading="lazy"
-              decoding="async"
-              style="height:24px;width:auto;opacity:.9;"
-            />
-            <span style="color:var(--ink-faint);font-weight:700;">Algarve, Portugal</span>
-          </div>
-
-          <div style="display:flex;gap:10px;flex-wrap:wrap;">
-            <a class="btn secondary" href="#topo" style="padding:10px 12px;border-radius:14px;">Topo</a>
-            <a class="btn secondary" href="#contacto" style="padding:10px 12px;border-radius:14px;">Contacto</a>
-          </div>
-        </div>
-
-        <div style="margin-top:12px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
-          <small style="color:var(--ink-faint);">
-            © <span id="year"></span> Sueste - Creative Agency. Todos os direitos reservados.
-          </small>
-          <small style="color:var(--ink-faint);">info@sueste-creative.com</small>
+    <footer class="site-footer section" aria-label="Rodapé" style="padding-top:0;">
+      <div class="container">
+        <div class="glass" style="padding:18px;display:flex;align-items:center;justify-content:space-between;gap:12px;">
+          <span style="color:rgba(255,255,255,0.70);font-size:13px;">Sueste - Creative Agency</span>
+          <a href="#topo" class="btn secondary" style="padding:10px 14px;border-radius:14px;">Voltar ao topo</a>
         </div>
       </div>
-    </div>
-  </footer>
+    </footer>
+  </main>
 
   <script>
     (function () {
       const toggle = document.querySelector(".nav-toggle");
-      const nav = document.querySelector("#site-nav");
-
+      const nav = document.querySelector(".site-nav");
       if (toggle && nav) {
         toggle.addEventListener("click", () => {
           const open = nav.classList.toggle("is-open");
@@ -367,100 +320,120 @@
       const y = document.getElementById("year");
       if (y) y.textContent = String(new Date().getFullYear());
 
-      /* iOS autoplay helper: starts video on first gesture if autoplay is blocked */
-      const v = document.querySelector(".hero-video-el");
-      if (v) {
+      const prefixEl = document.getElementById("typed-prefix");
+      const slowEl = document.getElementById("typed-slow");
+      const hiEl = document.getElementById("typed-highlight");
+      if (!prefixEl || !slowEl || !hiEl) return;
+
+      const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduceMotion) {
+        prefixEl.textContent = prefixEl.getAttribute("data-text") || "";
+        slowEl.textContent = slowEl.getAttribute("data-text") || "";
+        hiEl.textContent = hiEl.getAttribute("data-text") || "";
+        const caret = document.querySelector(".typed-caret");
+        if (caret) caret.style.display = "none";
+        return;
+      }
+
+      const prefix = prefixEl.getAttribute("data-text") || "";
+      const slow = slowEl.getAttribute("data-text") || "";
+      const hi = hiEl.getAttribute("data-text") || "";
+
+      prefixEl.textContent = "";
+      slowEl.textContent = "";
+      hiEl.textContent = "";
+
+      let i = 0;
+      let j = 0;
+      let k = 0;
+
+      const slowStart = prefix.length;
+
+      function delayFor(pos) {
+        if (pos < slowStart) return 16;
+        const t = (pos - slowStart) / Math.max(1, slow.length + hi.length);
+        return 90 + (t * 190);
+      }
+
+      function tick() {
+        if (i < prefix.length) {
+          i += 1;
+          prefixEl.textContent = prefix.slice(0, i);
+        } else if (j < slow.length) {
+          j += 1;
+          slowEl.textContent = slow.slice(0, j);
+        } else if (k < hi.length) {
+          k += 1;
+          hiEl.textContent = hi.slice(0, k);
+        } else {
+          return;
+        }
+
+        const pos = i + j + k;
+        setTimeout(tick, delayFor(pos));
+      }
+
+      setTimeout(tick, 240);
+    })();
+  </script>
+
+  <script>
+    (function () {
+      const v = document.getElementById("heroVideo") || document.querySelector(".hero-video-el");
+      if (!v) return;
+
+      const setIOSAttrs = () => {
         v.muted = true;
         v.defaultMuted = true;
         v.playsInline = true;
         v.setAttribute("muted", "");
         v.setAttribute("playsinline", "");
         v.setAttribute("webkit-playsinline", "");
+        v.removeAttribute("controls");
+      };
 
-        const tryPlay = () => {
-          const p = v.play();
-          if (p && typeof p.catch === "function") p.catch(() => {});
-        };
+      const tryPlay = () => {
+        setIOSAttrs();
+        const p = v.play();
+        if (p && typeof p.catch === "function") p.catch(() => {});
+      };
 
-        ["loadedmetadata", "canplay", "canplaythrough"].forEach((ev) => {
-          v.addEventListener(ev, tryPlay, { once: true });
-        });
+      const stopListeners = () => {
+        window.removeEventListener("touchstart", tryPlay);
+        window.removeEventListener("touchend", tryPlay);
+        window.removeEventListener("click", tryPlay);
+        window.removeEventListener("pointerdown", tryPlay);
+        window.removeEventListener("scroll", tryPlay);
+      };
 
-        setTimeout(tryPlay, 120);
-        window.addEventListener("pageshow", tryPlay);
+      setIOSAttrs();
 
-        const gesture = () => {
-          tryPlay();
-          window.removeEventListener("touchstart", gesture);
-          window.removeEventListener("click", gesture);
-          window.removeEventListener("scroll", gesture);
-        };
+      v.addEventListener("playing", stopListeners, { once: true });
+      v.addEventListener("loadedmetadata", tryPlay);
+      v.addEventListener("canplay", tryPlay);
 
-        window.addEventListener("touchstart", gesture, { passive: true });
-        window.addEventListener("click", gesture);
-        window.addEventListener("scroll", gesture, { passive: true });
-      }
+      window.addEventListener("touchstart", tryPlay, { passive: true });
+      window.addEventListener("touchend", tryPlay, { passive: true });
+      window.addEventListener("click", tryPlay);
+      window.addEventListener("pointerdown", tryPlay);
+      window.addEventListener("scroll", tryPlay, { passive: true });
 
-      const prefixEl = document.getElementById("typed-prefix");
-      const slowEl = document.getElementById("typed-slow");
-      const hiEl = document.getElementById("typed-highlight");
+      window.addEventListener("pageshow", tryPlay);
+      document.addEventListener("visibilitychange", () => {
+        if (!document.hidden) tryPlay();
+      });
 
-      if (prefixEl && slowEl && hiEl) {
-        const reduceMotion =
-          window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      let tries = 0;
+      const timer = setInterval(() => {
+        tries += 1;
+        if (!v.paused || tries > 12) clearInterval(timer);
+        tryPlay();
+      }, 350);
 
-        if (reduceMotion) {
-          prefixEl.textContent = prefixEl.getAttribute("data-text") || "";
-          slowEl.textContent = slowEl.getAttribute("data-text") || "";
-          hiEl.textContent = hiEl.getAttribute("data-text") || "";
-          const caret = document.querySelector(".typed-caret");
-          if (caret) caret.style.display = "none";
-          return;
-        }
-
-        const prefix = prefixEl.getAttribute("data-text") || "";
-        const slow = slowEl.getAttribute("data-text") || "";
-        const hi = hiEl.getAttribute("data-text") || "";
-
-        prefixEl.textContent = "";
-        slowEl.textContent = "";
-        hiEl.textContent = "";
-
-        let i = 0;
-        let j = 0;
-        let k = 0;
-
-        const slowStart = prefix.length;
-
-        function delayFor(pos) {
-          if (pos < slowStart) return 16;
-          const t = (pos - slowStart) / Math.max(1, slow.length + hi.length);
-          return 90 + (t * 190);
-        }
-
-        function tick() {
-          if (i < prefix.length) {
-            i += 1;
-            prefixEl.textContent = prefix.slice(0, i);
-          } else if (j < slow.length) {
-            j += 1;
-            slowEl.textContent = slow.slice(0, j);
-          } else if (k < hi.length) {
-            k += 1;
-            hiEl.textContent = hi.slice(0, k);
-          } else {
-            return;
-          }
-
-          const pos = i + j + k;
-          setTimeout(tick, delayFor(pos));
-        }
-
-        setTimeout(tick, 240);
-      }
+      tryPlay();
     })();
   </script>
 
-  <script src="./waves.js?v=20260128-2"></script>
+  <script src="./waves.js?v=20260128-1"></script>
 </body>
 </html>
