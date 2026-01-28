@@ -10,7 +10,6 @@
   --accent-2:#a7bfe8;
   --grad:linear-gradient(90deg,var(--accent),var(--accent-2));
 
-  /* waves.js reads these */
   --teal:var(--accent);
   --blue:var(--accent-2);
 
@@ -45,7 +44,7 @@ a{color:inherit}
   margin:0 auto;
 }
 
-/* Waves canvas */
+/* Waves canvas (safe visibility) */
 #bg-waves{
   position:fixed;
   inset:0;
@@ -53,8 +52,8 @@ a{color:inherit}
   height:100vh;
   z-index:0;
   pointer-events:none;
-  opacity:0.9;
-  mix-blend-mode:screen;
+  opacity:0.65;
+  mix-blend-mode:normal;
 }
 
 main,
@@ -195,6 +194,18 @@ main,
   object-position:center;
   display:block;
   filter:saturate(1.05) contrast(1.05);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Hide iOS media overlays when they flash */
+.hero-video-el::-webkit-media-controls{
+  display:none !important;
+}
+.hero-video-el::-webkit-media-controls-panel{
+  display:none !important;
+}
+.hero-video-el::-webkit-media-controls-start-playback-button{
+  display:none !important;
 }
 
 .hero-overlay{
@@ -206,34 +217,6 @@ main,
     linear-gradient(180deg, rgba(7,10,18,0.30), rgba(7,10,18,0.88));
   pointer-events:none;
 }
-
-<script>
-  (function () {
-    const v = document.querySelector(".hero-video-el");
-    if (!v) return;
-
-    v.muted = true;
-    v.defaultMuted = true;
-    v.playsInline = true;
-
-    const tryPlay = () => {
-      const p = v.play();
-      if (p && typeof p.then === "function") p.catch(() => {});
-    };
-
-    tryPlay();
-
-    const onFirstUserGesture = () => {
-      tryPlay();
-      window.removeEventListener("touchstart", onFirstUserGesture);
-      window.removeEventListener("click", onFirstUserGesture);
-    };
-
-    window.addEventListener("touchstart", onFirstUserGesture, { passive: true });
-    window.addEventListener("click", onFirstUserGesture);
-  })();
-</script>
-
 
 .site-header.site-header--overlay{
   position:absolute;
@@ -477,7 +460,7 @@ main,
   outline-offset:3px;
 }
 
-/* Scroll indicator: bottom centered on hero (desktop + mobile) */
+/* Scroll indicator: bottom centered on hero */
 .scroll-indicator{
   display:flex;
   flex-direction:column;
