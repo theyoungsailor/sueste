@@ -207,6 +207,34 @@ main,
   pointer-events:none;
 }
 
+<script>
+  (function () {
+    const v = document.querySelector(".hero-video-el");
+    if (!v) return;
+
+    v.muted = true;
+    v.defaultMuted = true;
+    v.playsInline = true;
+
+    const tryPlay = () => {
+      const p = v.play();
+      if (p && typeof p.then === "function") p.catch(() => {});
+    };
+
+    tryPlay();
+
+    const onFirstUserGesture = () => {
+      tryPlay();
+      window.removeEventListener("touchstart", onFirstUserGesture);
+      window.removeEventListener("click", onFirstUserGesture);
+    };
+
+    window.addEventListener("touchstart", onFirstUserGesture, { passive: true });
+    window.addEventListener("click", onFirstUserGesture);
+  })();
+</script>
+
+
 .site-header.site-header--overlay{
   position:absolute;
   top:0;
