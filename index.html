@@ -19,9 +19,11 @@
 
 <body>
   <canvas id="bg-waves" aria-hidden="true"></canvas>
+
   <a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
 
   <main id="conteudo">
+
     <section class="hero hero-video" aria-label="Hero">
       <div class="hero-video-wrap" aria-hidden="true">
         <video
@@ -645,6 +647,7 @@
         </div>
       </div>
     </footer>
+
   </main>
 
   <script>
@@ -802,8 +805,26 @@
       const prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const closeDelay = prefersReduced ? 0 : 180;
 
+      function getBodyLock(){
+        if (window.__suesteBodyLock) return window.__suesteBodyLock;
+
+        let count = 0;
+        function lock(){
+          count += 1;
+          if (count === 1) document.body.classList.add("is-modal-open");
+        }
+        function unlock(){
+          count = Math.max(0, count - 1);
+          if (count === 0) document.body.classList.remove("is-modal-open");
+        }
+        window.__suesteBodyLock = { lock, unlock };
+        return window.__suesteBodyLock;
+      }
+
       function lockBody(lock) {
-        document.body.classList.toggle("is-modal-open", lock);
+        const BL = getBodyLock();
+        if (lock) BL.lock();
+        else BL.unlock();
       }
 
       function openModal(id, trigger) {
@@ -870,15 +891,22 @@
 
       function onKeyDown(e) {
         if (!activeModal) return;
-
         if (e.key === "Escape") {
           e.preventDefault();
           closeModal(activeModal);
         }
       }
 
-      document.addEventListener("click", onClick);
-      document.addEventListener("keydown", onKeyDown);
+      function init() {
+        document.addEventListener("click", onClick);
+        document.addEventListener("keydown", onKeyDown);
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", init, { once: true });
+      } else {
+        init();
+      }
     })();
   </script>
 
@@ -895,8 +923,26 @@
       const prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const closeDelay = prefersReduced ? 0 : 180;
 
+      function getBodyLock(){
+        if (window.__suesteBodyLock) return window.__suesteBodyLock;
+
+        let count = 0;
+        function lock(){
+          count += 1;
+          if (count === 1) document.body.classList.add("is-modal-open");
+        }
+        function unlock(){
+          count = Math.max(0, count - 1);
+          if (count === 0) document.body.classList.remove("is-modal-open");
+        }
+        window.__suesteBodyLock = { lock, unlock };
+        return window.__suesteBodyLock;
+      }
+
       function lockBody(lock) {
-        document.body.classList.toggle("is-modal-open", lock);
+        const BL = getBodyLock();
+        if (lock) BL.lock();
+        else BL.unlock();
       }
 
       function openLightbox(src, alt, trigger) {
