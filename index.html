@@ -18,10 +18,18 @@
 </head>
 
 <body>
+  <!-- /* background canvas start */ -->
   <canvas id="bg-waves" aria-hidden="true"></canvas>
-  <a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
+  <!-- /* background canvas end */ -->
 
+  <!-- /* skip link start */ -->
+  <a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
+  <!-- /* skip link end */ -->
+
+  <!-- /* main start */ -->
   <main id="conteudo">
+
+    <!-- /* hero section start */ -->
     <section class="hero hero-video" aria-label="Hero">
       <div class="hero-video-wrap" aria-hidden="true">
         <video
@@ -101,7 +109,9 @@
         <span class="scroll-label">EXPLORE</span>
       </a>
     </section>
+    <!-- /* hero section end */ -->
 
+    <!-- /* services section start */ -->
     <section class="section section-services" id="servicos" aria-label="Serviços">
       <div class="container">
         <div class="section-head">
@@ -201,7 +211,9 @@
         </div>
       </div>
     </section>
+    <!-- /* services section end */ -->
 
+    <!-- /* projects section start */ -->
     <section class="section section-projects" id="projetos" aria-label="Projetos">
       <div class="container">
         <div class="section-head">
@@ -524,7 +536,9 @@
         </div>
       </div>
     </section>
+    <!-- /* projects section end */ -->
 
+    <!-- /* process section start */ -->
     <section class="section" id="processo" aria-label="Processo">
       <div class="container">
         <div class="section-head">
@@ -549,7 +563,9 @@
         </div>
       </div>
     </section>
+    <!-- /* process section end */ -->
 
+    <!-- /* about section start */ -->
     <section class="section" id="sobre" aria-label="Sobre">
       <div class="container">
         <div class="grid" style="grid-template-columns:1fr 1fr;gap:18px;align-items:stretch;">
@@ -574,7 +590,9 @@
         </div>
       </div>
     </section>
+    <!-- /* about section end */ -->
 
+    <!-- /* testimonials section start */ -->
     <section class="section" id="testemunhos" aria-label="Testemunhos">
       <div class="container">
         <div class="section-head">
@@ -599,7 +617,9 @@
         </div>
       </div>
     </section>
+    <!-- /* testimonials section end */ -->
 
+    <!-- /* contact section start */ -->
     <section class="section" id="contacto" aria-label="Contacto">
       <div class="container">
         <div class="grid" style="grid-template-columns:1.1fr 0.9fr;gap:18px;align-items:stretch;">
@@ -636,7 +656,9 @@
         </div>
       </div>
     </section>
+    <!-- /* contact section end */ -->
 
+    <!-- /* footer start */ -->
     <footer class="site-footer section" aria-label="Rodapé" style="padding-top:0;">
       <div class="container">
         <div class="glass" style="padding:18px;display:flex;align-items:center;justify-content:space-between;gap:12px;">
@@ -645,7 +667,11 @@
         </div>
       </div>
     </footer>
+    <!-- /* footer end */ -->
+
+  <!-- /* main end */ -->
   </main>
+  <!-- /* main end */ -->
 
   <script>
     (function () {
@@ -796,15 +822,41 @@
       const OPEN_ATTR = "data-modal-open";
       const CLOSE_ATTR = "data-modal-close";
 
+      const BL = (function () {
+        if (window.__suesteBodyLock && typeof window.__suesteBodyLock.lock === "function") return window.__suesteBodyLock;
+
+        let count = 0;
+        let scrollY = 0;
+
+        function lock() {
+          count += 1;
+          if (count !== 1) return;
+
+          scrollY = window.scrollY || window.pageYOffset || 0;
+          document.body.style.top = (-scrollY) + "px";
+          document.body.classList.add("is-modal-open");
+        }
+
+        function unlock() {
+          count = Math.max(0, count - 1);
+          if (count !== 0) return;
+
+          document.body.classList.remove("is-modal-open");
+          const top = document.body.style.top;
+          document.body.style.top = "";
+          const y = top ? Math.abs(parseInt(top, 10)) : scrollY;
+          window.scrollTo(0, y || 0);
+        }
+
+        window.__suesteBodyLock = { lock, unlock, get count(){ return count; } };
+        return window.__suesteBodyLock;
+      })();
+
       let activeModal = null;
       let lastFocus = null;
 
       const prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const closeDelay = prefersReduced ? 0 : 180;
-
-      function lockBody(lock) {
-        document.body.classList.toggle("is-modal-open", lock);
-      }
 
       function openModal(id, trigger) {
         const modal = document.getElementById(id);
@@ -818,7 +870,7 @@
 
         modal.hidden = false;
         modal.classList.add("is-open");
-        lockBody(true);
+        BL.lock();
 
         requestAnimationFrame(() => {
           dialog.focus({ preventScroll: true });
@@ -838,7 +890,7 @@
         if (!modal) return;
 
         modal.classList.remove("is-open");
-        lockBody(false);
+        BL.unlock();
 
         const toRestore = lastFocus;
         activeModal = null;
@@ -870,15 +922,22 @@
 
       function onKeyDown(e) {
         if (!activeModal) return;
-
         if (e.key === "Escape") {
           e.preventDefault();
           closeModal(activeModal);
         }
       }
 
-      document.addEventListener("click", onClick);
-      document.addEventListener("keydown", onKeyDown);
+      function init() {
+        document.addEventListener("click", onClick);
+        document.addEventListener("keydown", onKeyDown);
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", init, { once: true });
+      } else {
+        init();
+      }
     })();
   </script>
 
@@ -896,7 +955,12 @@
       const closeDelay = prefersReduced ? 0 : 180;
 
       function lockBody(lock) {
-        document.body.classList.toggle("is-modal-open", lock);
+        const BL = window.__suesteBodyLock;
+        if (!BL) {
+          document.body.classList.toggle("is-modal-open", lock);
+          return;
+        }
+        if (lock) BL.lock(); else BL.unlock();
       }
 
       function openLightbox(src, alt, trigger) {
