@@ -1399,10 +1399,14 @@ body.is-modal-open{
   inset:0;
   z-index:10000;
   display:none;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .cs-lightbox.is-open{
   display:block;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .cs-lightbox__backdrop{
