@@ -61,7 +61,7 @@
 
           <nav class="site-nav site-nav--pills" id="site-nav" aria-label="Navegação principal">
             <a class="nav-pill" href="#servicos">Serviços</a>
-            <a class="nav-pill" href="#projetos">Projetos</a>
+            <a class="nav-pill" href="#projetos">Portfólio</a>
             <a class="nav-pill" href="#processo">Processo</a>
             <a class="nav-pill" href="#sobre">Sobre</a>
             <a class="nav-pill" href="#testemunhos">Testemunhos</a>
@@ -294,6 +294,76 @@
             </div>
           </article>
 
+          <article class="glass project-card project-card--featured" aria-label="ICON Property case study">
+            <div class="project-card__top project-feature">
+              <div class="project-main">
+                <div class="project-brand">
+                  <!-- Placeholder Logo -->
+                  <div style="background:rgba(255,255,255,0.1);border-radius:8px;width:140px;height:44px;"></div>
+                  <div class="project-brand__text">
+                    <h3 class="project-title">ICON Property</h3>
+                    <p class="project-desc">
+                      Estratégia digital integrada para o setor imobiliário de luxo, elevando a marca e a captação de leads qualificadas.
+                    </p>
+                    <ul class="project-tags" aria-label="Áreas do projeto">
+                      <li><span class="pill-link project-tag">Branding</span></li>
+                      <li><span class="pill-link project-tag">Website</span></li>
+                      <li><span class="pill-link project-tag">Marketing</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <aside class="project-aside">
+                <div class="project-actions" style="width:100%;justify-content:flex-end;">
+                  <button
+                    class="pill-link project-cta"
+                    type="button"
+                    data-modal-open="cs-icon"
+                    aria-haspopup="dialog"
+                    aria-controls="cs-icon"
+                  >
+                    Ver case study
+                  </button>
+                </div>
+              </aside>
+            </div>
+          </article>
+
+          <article class="glass project-card project-card--featured" aria-label="Junta de Freguesia de Ferragudo case study">
+            <div class="project-card__top project-feature">
+              <div class="project-main">
+                <div class="project-brand">
+                   <!-- Placeholder Logo -->
+                   <div style="background:rgba(255,255,255,0.1);border-radius:8px;width:140px;height:44px;"></div>
+                  <div class="project-brand__text">
+                    <h3 class="project-title">Junta de Freguesia de Ferragudo</h3>
+                    <p class="project-desc">
+                      Modernização da comunicação autárquica, aproximando os cidadãos através de plataformas digitais intuitivas.
+                    </p>
+                    <ul class="project-tags" aria-label="Áreas do projeto">
+                      <li><span class="pill-link project-tag">Identidade</span></li>
+                      <li><span class="pill-link project-tag">App</span></li>
+                      <li><span class="pill-link project-tag">Social</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <aside class="project-aside">
+                <div class="project-actions" style="width:100%;justify-content:flex-end;">
+                  <button
+                    class="pill-link project-cta"
+                    type="button"
+                    data-modal-open="cs-junta"
+                    aria-haspopup="dialog"
+                    aria-controls="cs-junta"
+                  >
+                    Ver case study
+                  </button>
+                </div>
+              </aside>
+            </div>
+          </article>
+
           <article class="glass project-card" aria-label="Projeto 01">
             <div class="project-thumb" aria-hidden="true"></div>
             <h3 class="project-title">Projeto 01</h3>
@@ -489,6 +559,68 @@
               </section>
             </div>
 
+            <footer class="cs-footer">
+              <a class="pill-link cs-footer__cta" href="#contacto">Falar com a Sueste</a>
+              <button class="pill-link cs-footer__close" type="button" data-modal-close>Fechar</button>
+            </footer>
+          </div>
+        </div>
+
+        <!-- NEW MODAL for ICON Property -->
+        <div class="cs-modal" id="cs-icon" data-modal hidden>
+          <div class="cs-backdrop" data-modal-close aria-hidden="true"></div>
+          <div class="cs-dialog glass" role="dialog" aria-modal="true" aria-labelledby="cs-icon-title" tabindex="-1">
+            <header class="cs-header">
+              <div class="cs-header__left">
+                 <div style="background:rgba(255,255,255,0.1);border-radius:8px;width:150px;height:48px;"></div>
+                 <div class="cs-header__text">
+                   <h3 class="cs-title" id="cs-icon-title">ICON Property</h3>
+                   <p class="cs-lead">Case study sobre a estratégia digital para imobiliário de luxo.</p>
+                 </div>
+              </div>
+              <button class="pill-link cs-close" type="button" data-modal-close>Fechar</button>
+            </header>
+            <div class="cs-body">
+              <section class="cs-section">
+                <h4 class="cs-h">Visão geral</h4>
+                <p class="cs-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </section>
+              <section class="cs-section">
+                <h4 class="cs-h">Solução</h4>
+                <p class="cs-p">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </section>
+            </div>
+            <footer class="cs-footer">
+              <a class="pill-link cs-footer__cta" href="#contacto">Falar com a Sueste</a>
+              <button class="pill-link cs-footer__close" type="button" data-modal-close>Fechar</button>
+            </footer>
+          </div>
+        </div>
+
+        <!-- NEW MODAL for Junta de Freguesia -->
+        <div class="cs-modal" id="cs-junta" data-modal hidden>
+          <div class="cs-backdrop" data-modal-close aria-hidden="true"></div>
+          <div class="cs-dialog glass" role="dialog" aria-modal="true" aria-labelledby="cs-junta-title" tabindex="-1">
+            <header class="cs-header">
+              <div class="cs-header__left">
+                 <div style="background:rgba(255,255,255,0.1);border-radius:8px;width:150px;height:48px;"></div>
+                 <div class="cs-header__text">
+                   <h3 class="cs-title" id="cs-junta-title">Junta de Freguesia de Ferragudo</h3>
+                   <p class="cs-lead">Modernização da interface e comunicação digital autárquica.</p>
+                 </div>
+              </div>
+              <button class="pill-link cs-close" type="button" data-modal-close>Fechar</button>
+            </header>
+            <div class="cs-body">
+              <section class="cs-section">
+                <h4 class="cs-h">Visão geral</h4>
+                <p class="cs-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </section>
+              <section class="cs-section">
+                <h4 class="cs-h">Solução</h4>
+                <p class="cs-p">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </section>
+            </div>
             <footer class="cs-footer">
               <a class="pill-link cs-footer__cta" href="#contacto">Falar com a Sueste</a>
               <button class="pill-link cs-footer__close" type="button" data-modal-close>Fechar</button>
@@ -817,6 +949,7 @@
         activeModal = modal;
 
         modal.hidden = false;
+        modal.removeAttribute('hidden');
         modal.classList.add("is-open");
         lockBody(true);
 
